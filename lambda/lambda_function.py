@@ -170,7 +170,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
         # else:
         #     speak_output = "Are you sure in {location}?".format(location=location)
         
-        speak_output="pass"
+        # speak_output="pass"
             
 
         return (
