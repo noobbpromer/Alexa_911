@@ -152,15 +152,21 @@ class AccidentIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
-
-        current_question_index = 0
-        question = accident_data[current_question_index]["q"]
-        speak_output = ("<break time='0.5s'/> {}").format(question)
+        if location ==None:
+            current_question_index = 0
+            question = accident_data[current_question_index]["q"]
+            speak_output = ("<break time='0.5s'/> {}").format(question)
+        else:
+            current_question_index = 1
+            question = accident_data[current_question_index]["q"]
+            speak_output = ("<break time='0.5s'/> {}").format(question)
+            
             
 
 
         session_attributes["current_question_index"] = current_question_index
         session_attributes["question"] = question
+        
         # session_attributes["quiz_started"] = True
         # quiz_started=True
 
