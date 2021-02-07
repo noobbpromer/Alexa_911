@@ -152,7 +152,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
         if location == ' ':
             speak_output = "where is the location?"
         else:
-            speak_output = "hello"
+            speak_output = "{location}".format(location=location)
             
 
         return (
