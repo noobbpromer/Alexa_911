@@ -23,6 +23,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 question_data = json.loads(open('question_data.json').read())
+accident_data = json.loads(open('car_accident.json').read())
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -147,12 +148,27 @@ class AccidentIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
+        session_attributes = handler_input.attributes_manager.session_attributes
+        quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
-        if location == None:
-            speak_output = "where is the location?"
-        else:
-            speak_output = "Are you sure in {location}?".format(location=location)
+
+        if not quiz_started:
+            
+            current_question_index = 0
+            question = car_accident[current_question_index]["q"]
+            speak_output = ("<break time='0.5s'/> {}").format(question)
+            reprompt = "what is the answer?"
+
+            session_attributes["current_question_index"] = current_question_index
+            session_attributes["question"] = question
+            session_attributes["quiz_started"] = True
+            quiz_started=True
+
+        # if location == None:
+        #     speak_output = "where is the location?"
+        # else:
+        #     speak_output = "Are you sure in {location}?".format(location=location)
             
 
         return (
