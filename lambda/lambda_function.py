@@ -153,9 +153,9 @@ class AccidentIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
 
-        # if not quiz_started:
+        if not quiz_started:
             
-        #     current_question_index = 0
+            current_question_index = 0
         #     question = car_accident[current_question_index]["q"]
         #     speak_output = ("<break time='0.5s'/> {}").format(question)
 
