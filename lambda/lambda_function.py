@@ -153,7 +153,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
 
-        # if not quiz_started:
+        if not quiz_started:
             
         #     current_question_index = 0
         #     question = car_accident[current_question_index]["q"]
@@ -165,10 +165,12 @@ class AccidentIntentHandler(AbstractRequestHandler):
         #     session_attributes["quiz_started"] = True
         #     quiz_started=True
 
-        if location == None:
-            speak_output = "where is the location?"
-        else:
-            speak_output = "Are you sure in {location}?".format(location=location)
+        # if location == None:
+        #     speak_output = "where is the location?"
+        # else:
+        #     speak_output = "Are you sure in {location}?".format(location=location)
+        
+        speak_output="pass"
             
 
         return (
