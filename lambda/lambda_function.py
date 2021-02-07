@@ -156,7 +156,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
         if not quiz_started:
             
             current_question_index = 0
-            question = question_data[current_question_index]["q"]
+            question = accident_data[current_question_index]["q"]
             # speak_output = ("<break time='0.5s'/> {}").format(question)
             
 
