@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "q": " What is your favorite color "
+
+    },
+    {
+        "id": "2",
+        "q": "Question2 <break time='0.5s'/> what is the answer of 100*10-100?"
+
+    },
+    {
+        "id": "3",
+        "q": "Question3 <break time='0.5s'/> How are you today?"
+
+    },
+    {
+        "id": "4",
+        "q": "Question4 <break time='0.5s'/>  tell me you day of born."
+    },
+    {
+        "id": "5",
+        "q": "Question5 <break time='0.5s'/> Do you have any Work experience？ "
+
+    }
+]
