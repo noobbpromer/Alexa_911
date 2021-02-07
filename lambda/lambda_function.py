@@ -106,7 +106,7 @@ class AnswerIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         slots = handler_input.request_envelope.request.intent.slots
         answer = slots["answer"].value
-        # year=slots["year"].value
+        year=slots["year"].value
         # mouth=slots["mouth"].value
         # day=slots["day"].value
         # number=slots["number"].value
