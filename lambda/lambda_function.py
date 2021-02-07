@@ -160,10 +160,10 @@ class AccidentIntentHandler(AbstractRequestHandler):
             speak_output = ("<break time='0.5s'/> {}").format(question)
 
 
-            session_attributes["current_question_index"] = current_question_index
-            session_attributes["question"] = question
-            session_attributes["quiz_started"] = True
-            quiz_started=True
+            # session_attributes["current_question_index"] = current_question_index
+            # session_attributes["question"] = question
+            # session_attributes["quiz_started"] = True
+            # quiz_started=True
 
         # if location == None:
         #     speak_output = "where is the location?"
