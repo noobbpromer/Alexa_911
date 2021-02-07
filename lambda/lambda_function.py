@@ -159,7 +159,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
         else:
             current_question_index = 1
             question = accident_data[current_question_index]["q"]
-            speak_output = ("{location}").format(question,location=location)
+            speak_output = ("{location} <break time='0.5s'/> {}").format(location=location,question)
             
         session_attributes["current_question_index"] = current_question_index
         session_attributes["question"] = question
