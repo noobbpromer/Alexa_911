@@ -155,10 +155,10 @@ class AccidentIntentHandler(AbstractRequestHandler):
 
         if not quiz_started:
             
-        #     current_question_index = 0
-        #     question = car_accident[current_question_index]["q"]
+            current_question_index = 0
+            question = car_accident[current_question_index]["q"]
         #     speak_output = ("<break time='0.5s'/> {}").format(question)
-        #     reprompt = "what is the answer?"
+
 
         #     session_attributes["current_question_index"] = current_question_index
         #     session_attributes["question"] = question
