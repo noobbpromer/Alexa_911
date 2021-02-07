@@ -147,7 +147,9 @@ class AccidentIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
+        slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
+        
         speak_output = "where is the location?"
 
         return (
