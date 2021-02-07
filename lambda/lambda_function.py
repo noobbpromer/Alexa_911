@@ -45,37 +45,37 @@ class LaunchRequestHandler(AbstractRequestHandler):
                 .response
         )
     
-# class YesIntentHandler(AbstractRequestHandler):
-#     """Handler for Help Intent."""
-#     def can_handle(self, handler_input):
-#         # type: (HandlerInput) -> bool
-#         return is_intent_name("YesIntent")(handler_input)
+class YesIntentHandler(AbstractRequestHandler):
+    """Handler for Help Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("YesIntent")(handler_input)
 
-#     def handle(self, handler_input):
-#         # type: (HandlerInput) -> Response
-#         session_attributes = handler_input.attributes_manager.session_attributes
-#         quiz_started = session_attributes["quiz_started"]
-#         # say_yes=0
-#         if not quiz_started:
-#             current_question_index = 0
-#             question = question_data[current_question_index]["q"]
-#             speak_output = ("here is the first question: <break time='0.5s'/> {}").format(question)
-#             reprompt = "what is the answer?"
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        session_attributes = handler_input.attributes_manager.session_attributes
+        quiz_started = session_attributes["quiz_started"]
+        # say_yes=0
+        if not quiz_started:
+            current_question_index = 0
+            question = question_data[current_question_index]["q"]
+            speak_output = ("here is the first question: <break time='0.5s'/> {}").format(question)
+            reprompt = "what is the answer?"
 
-#            session_attributes["current_question_index"] = current_question_index
-#             session_attributes["question"] = question
-#             session_attributes["quiz_started"] = True
-#             quiz_started=True
-#         # elif quiz_started :
-#         #     speech_output = 'you already start the survey, please finish it.'
-#         #     reprompt = 'you already start the survey, please finish it.'
+            session_attributes["current_question_index"] = current_question_index
+            session_attributes["question"] = question
+            session_attributes["quiz_started"] = True
+            quiz_started=True
+        # elif quiz_started :
+        #     speech_output = 'you already start the survey, please finish it.'
+        #     reprompt = 'you already start the survey, please finish it.'
 
-#         return (
-#             handler_input.response_builder
-#                 .speak(speak_output)
-#                 .ask(reprompt)
-#                 .response
-#         )
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(reprompt)
+                .response
+        )
     
 class NoIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
@@ -137,10 +137,27 @@ class AnswerIntentHandler(AbstractRequestHandler):
                 .speak(next_question_speech)
                 .ask(speak_output)
                 .response
-        )    
+        )   
 
+class AccidentIntentHandler(AbstractRequestHandler):
+    """Handler for Help Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AccidentIntent")(handler_input)
 
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "where is the location?"
 
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+    
+    
+    
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
@@ -246,9 +263,10 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
-# sb.add_request_handler(YesIntentHandler())
+sb.add_request_handler(YesIntentHandler())
 sb.add_request_handler(NoIntentHandler())
 sb.add_request_handler(AnswerIntentHandler())
+sb.add_request_handler(AccidentIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
