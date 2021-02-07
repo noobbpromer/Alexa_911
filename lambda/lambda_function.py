@@ -161,7 +161,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
 
         session_attributes["current_question_index"] = current_question_index
         session_attributes["question"] = question
-        session_attributes["quiz_started"] = True
+        # session_attributes["quiz_started"] = True
         # quiz_started=True
 
         # if location == None:
