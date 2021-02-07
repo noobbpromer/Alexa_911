@@ -149,7 +149,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
-        if location == ' ':
+        if location == None:
             speak_output = "where is the location?"
         else:
             speak_output = "{location}".format(location=location)
