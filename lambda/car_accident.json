@@ -6,7 +6,7 @@
     },
     {
         "id": "2",
-        "q": " {} ? <break time='0.5s'/> Do you know if there are injuries?"
+        "q": " <break time='0.5s'/> Do you know if there are injuries?"
 
     },
     {
