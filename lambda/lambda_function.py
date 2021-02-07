@@ -158,7 +158,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
             current_question_index = 0
             question = car_accident[current_question_index]["q"]
             # speak_output = ("<break time='0.5s'/> {}").format(question)
-            speak_output="pass"
+            
 
 
             # session_attributes["current_question_index"] = current_question_index
@@ -170,6 +170,8 @@ class AccidentIntentHandler(AbstractRequestHandler):
         #     speak_output = "where is the location?"
         # else:
         #     speak_output = "Are you sure in {location}?".format(location=location)
+        
+        speak_output="pass"
         
             
 
