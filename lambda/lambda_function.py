@@ -156,8 +156,8 @@ class AccidentIntentHandler(AbstractRequestHandler):
             current_question_index = 0
             question = accident_data[current_question_index]["q"]
             speak_output = ("<break time='0.5s'/> {}").format(question)
-        else if location =="here":
-            speak_output="can you give me your exact address？"
+        # else if location == here:
+        #     speak_output="can you give me your exact address？"
         else:
             current_question_index = 1
             question = accident_data[current_question_index]["q"]
