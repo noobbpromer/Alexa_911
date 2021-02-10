@@ -152,7 +152,7 @@ class AnswerIntentHandler(AbstractRequestHandler):
         
         current_question_index = session_attributes["current_question_index"] + 1
         
-        if current_question_index == 1:
+        if current_question_index == 2:
             question = accident_data[current_question_index]["q"]
             next_question_speech = (" {}").format(question)
             session_attributes["current_question_index"] = current_question_index
