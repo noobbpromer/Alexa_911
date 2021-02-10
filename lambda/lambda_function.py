@@ -91,7 +91,7 @@ class NoIntentHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .set_should_end_session(True)
+                # .set_should_end_session(True)
                 .response
         )
 
