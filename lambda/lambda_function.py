@@ -187,18 +187,18 @@ class AnswerIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         answer = slots["answer"].value
         current_question_index = session_attributes["current_question_index"] + 1
-        if current_question_index < 5:
-            question = accident_data[current_question_index]["q"]
-            next_question_speech = (" {}").format(question)
-            session_attributes["current_question_index"] = current_question_index
-            session_attributes["question"] = question 
+        # if current_question_index < 5:
+        #     question = accident_data[current_question_index]["q"]
+        #     next_question_speech = (" {}").format(question)
+        #     session_attributes["current_question_index"] = current_question_index
+        #     session_attributes["question"] = question 
             
         
-        # speak_output = "pass"
+        speak_output = "pass"
 
         return (
             handler_input.response_builder
-                .speak(next_question_speech)
+                .speak(speak_output)
                 .ask(speak_output)
                 .response
         )
