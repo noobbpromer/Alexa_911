@@ -138,17 +138,17 @@ class AccidentIntentHandler(AbstractRequestHandler):
     
 
 
-class AnswerIntentHandler(AbstractRequestHandler):
-    """Handler for Help Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("AnswerIntent")(handler_input)
+# class AnswerIntentHandler(AbstractRequestHandler):
+#     """Handler for Help Intent."""
+#     def can_handle(self, handler_input):
+#         # type: (HandlerInput) -> bool
+#         return is_intent_name("AnswerIntent")(handler_input)
 
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        session_attributes = handler_input.attributes_manager.session_attributes
-        slots = handler_input.request_envelope.request.intent.slots
-        answer = slots["answer"].value
+#     def handle(self, handler_input):
+#         # type: (HandlerInput) -> Response
+#         session_attributes = handler_input.attributes_manager.session_attributes
+#         slots = handler_input.request_envelope.request.intent.slots
+#         answer = slots["answer"].value
         
         # current_question_index = session_attributes["current_question_index"] + 1
         
@@ -157,7 +157,7 @@ class AnswerIntentHandler(AbstractRequestHandler):
         #     next_question_speech = (" {}").format(question)
         #     session_attributes["current_question_index"] = current_question_index
         #     session_attributes["question"] = question
-        next_question_speech="pass"
+        # next_question_speech="pass"
 
         # else:
         #     next_question_speech = ("thank you for taking the survey!")
@@ -169,13 +169,28 @@ class AnswerIntentHandler(AbstractRequestHandler):
         #             .set_should_end_session(True)
         #             .response
         #     )
+        # return (
+        #     handler_input.response_builder
+        #         .speak(next_question_speech)
+        #         .ask(speak_output)
+        #         .response
+        # )   
+class AnswerIntentHandler(AbstractRequestHandler):
+    """Handler for Help Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AnswerIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        speak_output = "pass"
+
         return (
             handler_input.response_builder
-                .speak(next_question_speech)
+                .speak(speak_output)
                 .ask(speak_output)
                 .response
-        )   
-
+        )
 
     
     
