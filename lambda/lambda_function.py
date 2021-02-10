@@ -175,33 +175,31 @@ class AccidentIntentHandler(AbstractRequestHandler):
         #         .ask(speak_output)
         #         .response
         # )   
-class AnswerIntentHandler(AbstractRequestHandler):
-    """Handler for Help Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("AnswerIntent")(handler_input)
+# class AnswerIntentHandler(AbstractRequestHandler):
+#     """Handler for Help Intent."""
+#     def can_handle(self, handler_input):
+#         # type: (HandlerInput) -> bool
+#         return is_intent_name("AnswerIntent")(handler_input)
 
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        session_attributes = handler_input.attributes_manager.session_attributes
-        slots = handler_input.request_envelope.request.intent.slots
-        answer = slots["answer"].value
-        current_question_index = session_attributes["current_question_index"] + 1
-        if current_question_index < 5:
-            question = accident_data[current_question_index]["q"]
-            speak_output = (" {}").format(question)
-            session_attributes["current_question_index"] = current_question_index
-            session_attributes["question"] = question 
+#     def handle(self, handler_input):
+#         # type: (HandlerInput) -> Response
+#         session_attributes = handler_input.attributes_manager.session_attributes
+#         slots = handler_input.request_envelope.request.intent.slots
+#         answer = slots["answer"].value
+#         current_question_index = session_attributes["current_question_index"] + 1
+#         if current_question_index < 5:
+#             question = accident_data[current_question_index]["q"]
+#             speak_output = (" {}").format(question)
+#             session_attributes["current_question_index"] = current_question_index
+#             session_attributes["question"] = question 
             
-        
-        
-
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .response
-        )
+    
+#         return (
+#             handler_input.response_builder
+#                 .speak(speak_output)
+#                 .ask(speak_output)
+#                 .response
+#         )
 
     
     
@@ -312,7 +310,7 @@ sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 # sb.add_request_handler(YesIntentHandler())
 # sb.add_request_handler(NoIntentHandler())
-sb.add_request_handler(AnswerIntentHandler())
+# sb.add_request_handler(AnswerIntentHandler())
 sb.add_request_handler(AccidentIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
