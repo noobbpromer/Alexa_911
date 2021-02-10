@@ -96,46 +96,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
 #         )
 
 
-class AnswerIntentHandler(AbstractRequestHandler):
-    """Handler for Help Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("AnswerIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        session_attributes = handler_input.attributes_manager.session_attributes
-        slots = handler_input.request_envelope.request.intent.slots
-        answer = slots["answer"].value
-        
-        current_question_index = session_attributes["current_question_index"] + 1
-        if current_question_index < 5:
-
-            question = accident_data[current_question_index]["q"]
-            next_question_speech = (" {}").format(question)
-            session_attributes["current_question_index"] = current_question_index
-            session_attributes["question"] = question
-            # speech_output += next_question_speech
-            # speak_output = "this is the answer intent"
-
-        else:
-            next_question_speech = ("thank you for taking the survey!")
-
-            return(
-    
-                handler_input.response_builder
-                    .speak(next_question_speech)
-                    .set_should_end_session(True)
-                    .response
-            )
-
-        return (
-            handler_input.response_builder
-                .speak(next_question_speech)
-                .ask(speak_output)
-                .response
-        )   
-
 class AccidentIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
@@ -176,6 +136,48 @@ class AccidentIntentHandler(AbstractRequestHandler):
                 .response
         )
     
+
+
+class AnswerIntentHandler(AbstractRequestHandler):
+    """Handler for Help Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AnswerIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        session_attributes = handler_input.attributes_manager.session_attributes
+        slots = handler_input.request_envelope.request.intent.slots
+        answer = slots["answer"].value
+        
+        current_question_index = session_attributes["current_question_index"] + 1
+        
+        if current_question_index == 1:
+            question = accident_data[current_question_index]["q"]
+            next_question_speech = (" {}").format(question)
+            session_attributes["current_question_index"] = current_question_index
+            session_attributes["question"] = question
+            # speech_output += next_question_speech
+            # speak_output = "this is the answer intent"
+
+        # else:
+        #     next_question_speech = ("thank you for taking the survey!")
+
+        #     return(
+
+        #         handler_input.response_builder
+        #             .speak(next_question_speech)
+        #             .set_should_end_session(True)
+        #             .response
+        #     )
+        return (
+            handler_input.response_builder
+                .speak(next_question_speech)
+                .ask(speak_output)
+                .response
+        )   
+
+
     
     
 class HelpIntentHandler(AbstractRequestHandler):
