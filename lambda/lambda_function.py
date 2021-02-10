@@ -194,7 +194,7 @@ class AnswerIntentHandler(AbstractRequestHandler):
             session_attributes["question"] = question 
             
         
-        # speak_output = "pass"
+        
 
         return (
             handler_input.response_builder
