@@ -150,15 +150,14 @@ class AnswerIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         answer = slots["answer"].value
         
-        current_question_index = session_attributes["current_question_index"] + 1
+        # current_question_index = session_attributes["current_question_index"] + 1
         
-        if current_question_index == 2:
-            question = accident_data[current_question_index]["q"]
-            next_question_speech = (" {}").format(question)
-            session_attributes["current_question_index"] = current_question_index
-            session_attributes["question"] = question
-            # speech_output += next_question_speech
-            # speak_output = "this is the answer intent"
+        # if current_question_index == 2:
+        #     question = accident_data[current_question_index]["q"]
+        #     next_question_speech = (" {}").format(question)
+        #     session_attributes["current_question_index"] = current_question_index
+        #     session_attributes["question"] = question
+        next_question_speech="pass"
 
         # else:
         #     next_question_speech = ("thank you for taking the survey!")
