@@ -155,7 +155,7 @@ class AccidentIntentHandler(AbstractRequestHandler):
         if location ==None:
             current_question_index = 0
             question = accident_data[current_question_index]["q"]
-            speak_output = ("<break time='0.5s'/> {}").format(question)
+            speak_output = ("<break time='0.5s'/> {}").format(question) 
         else:
             current_question_index = 1
             question = accident_data[current_question_index]["q"]
@@ -167,12 +167,6 @@ class AccidentIntentHandler(AbstractRequestHandler):
         # session_attributes["quiz_started"] = True
         # quiz_started=True
 
-        # if location == None:
-        #     speak_output = "where is the location?"
-        # else:
-        #     speak_output = "Are you sure in {location}?".format(location=location)
-        
-        # speak_output="pass"
         
             
 
