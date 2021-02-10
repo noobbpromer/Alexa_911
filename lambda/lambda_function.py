@@ -183,6 +183,10 @@ class AnswerIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
+        session_attributes = handler_input.attributes_manager.session_attributes
+        slots = handler_input.request_envelope.request.intent.slots
+        answer = slots["answer"].value
+        
         speak_output = "pass"
 
         return (
