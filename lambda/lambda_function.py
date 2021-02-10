@@ -46,54 +46,55 @@ class LaunchRequestHandler(AbstractRequestHandler):
                 .response
         )
     
-class YesIntentHandler(AbstractRequestHandler):
-    """Handler for Help Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("YesIntent")(handler_input)
+# class YesIntentHandler(AbstractRequestHandler):
+#     """Handler for Help Intent."""
+#     def can_handle(self, handler_input):
+#         # type: (HandlerInput) -> bool
+#         return is_intent_name("YesIntent")(handler_input)
 
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        session_attributes = handler_input.attributes_manager.session_attributes
-        quiz_started = session_attributes["quiz_started"]
-        # say_yes=0
-        if not quiz_started:
-            current_question_index = 0
-            question = question_data[current_question_index]["q"]
-            speak_output = ("here is the first question: <break time='0.5s'/> {}").format(question)
-            reprompt = "what is the answer?"
+#     def handle(self, handler_input):
+#         # type: (HandlerInput) -> Response
+#         session_attributes = handler_input.attributes_manager.session_attributes
+#         quiz_started = session_attributes["quiz_started"]
+#         # say_yes=0
+#         if not quiz_started:
+#             current_question_index = 0
+#             question = question_data[current_question_index]["q"]
+#             speak_output = ("here is the first question: <break time='0.5s'/> {}").format(question)
+#             reprompt = "what is the answer?"
 
-            session_attributes["current_question_index"] = current_question_index
-            session_attributes["question"] = question
-            session_attributes["quiz_started"] = True
-            quiz_started=True
-        # elif quiz_started :
-        #     speech_output = 'you already start the survey, please finish it.'
-        #     reprompt = 'you already start the survey, please finish it.'
+#             session_attributes["current_question_index"] = current_question_index
+#             session_attributes["question"] = question
+#             session_attributes["quiz_started"] = True
+#             quiz_started=True
+#         # elif quiz_started :
+#         #     speech_output = 'you already start the survey, please finish it.'
+#         #     reprompt = 'you already start the survey, please finish it.'
 
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(reprompt)
-                .response
-        )
+#         return (
+#             handler_input.response_builder
+#                 .speak(speak_output)
+#                 .ask(reprompt)
+#                 .response
+#         )
     
-class NoIntentHandler(AbstractRequestHandler):
-    """Handler for Help Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("NoIntent")(handler_input)
+# class NoIntentHandler(AbstractRequestHandler):
+#     """Handler for Help Intent."""
+#     def can_handle(self, handler_input):
+#         # type: (HandlerInput) -> bool
+#         return is_intent_name("NoIntent")(handler_input)
 
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speak_output = "Ok, let me know when you free."
+#     def handle(self, handler_input):
+#         # type: (HandlerInput) -> Response
+#         speak_output = "Ok, let me know when you free."
 
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                # .set_should_end_session(True)
-                .response
-        )
+#         return (
+#             handler_input.response_builder
+#                 .speak(speak_output)
+#                 # .set_should_end_session(True)
+#                 .response
+#         )
+
 
 class AnswerIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
@@ -106,19 +107,16 @@ class AnswerIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         slots = handler_input.request_envelope.request.intent.slots
         answer = slots["answer"].value
-        year=slots["year"].value
-        # mouth=slots["mouth"].value
-        # day=slots["day"].value
-        # number=slots["number"].value
+        
         current_question_index = session_attributes["current_question_index"] + 1
         if current_question_index < 5:
 
-            question = question_data[current_question_index]["q"]
+            question = accident_data[current_question_index]["q"]
             next_question_speech = (" {}").format(question)
             session_attributes["current_question_index"] = current_question_index
             session_attributes["question"] = question
             # speech_output += next_question_speech
-            speak_output = "this is the answer intent"
+            # speak_output = "this is the answer intent"
 
         else:
             next_question_speech = ("thank you for taking the survey!")
@@ -285,8 +283,8 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
-sb.add_request_handler(YesIntentHandler())
-sb.add_request_handler(NoIntentHandler())
+# sb.add_request_handler(YesIntentHandler())
+# sb.add_request_handler(NoIntentHandler())
 sb.add_request_handler(AnswerIntentHandler())
 sb.add_request_handler(AccidentIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
