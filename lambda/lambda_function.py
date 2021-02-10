@@ -152,16 +152,17 @@ class AccidentIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
+        prepositions=slots["prepositions"].value
         if location ==None:
             current_question_index = 0
             question = accident_data[current_question_index]["q"]
             speak_output = ("<break time='0.5s'/> {}").format(question)
-        else if location == "here":
-            speak_output="can you give me your exact address？"
+        # else if location == "here":
+        #     speak_output="can you give me your exact address？"
         else:
             current_question_index = 1
             question = accident_data[current_question_index]["q"]
-            speak_output = ("{location}? {}").format(question,location=location)
+            speak_output = ("{prepositions}{location}? {}").format(question,prepositions=prepositions,location=location)
             
         session_attributes["current_question_index"] = current_question_index
         session_attributes["question"] = question
