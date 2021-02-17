@@ -22,7 +22,7 @@ from ask_sdk_model import Response
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-question_data = json.loads(open('question_data.json').read())
+# question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
 
 class LaunchRequestHandler(AbstractRequestHandler):
