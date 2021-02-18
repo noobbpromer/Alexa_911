@@ -156,7 +156,7 @@ class OutlookIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "You can say hello to me! How can I help?"
+        speak_output = "YOU GOT THIS intent"
 
         return (
             handler_input.response_builder
