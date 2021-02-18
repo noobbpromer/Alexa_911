@@ -46,11 +46,11 @@ class LaunchRequestHandler(AbstractRequestHandler):
                 .response
         )
     
-class AccidentIntentHandler(AbstractRequestHandler):
+class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        return is_intent_name("AccidentIntent")(handler_input)
+        return is_intent_name("LocationIntent")(handler_input)
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
@@ -257,7 +257,7 @@ sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(AnswerIntentHandler())
-sb.add_request_handler(AccidentIntentHandler())
+sb.add_request_handler(LocationIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
