@@ -156,7 +156,13 @@ class OutlookIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "YOU GOT THIS intent"
+        
+        session_attributes = handler_input.attributes_manager.session_attributes
+        # quiz_started = session_attributes["quiz_started"]
+        slots = handler_input.request_envelope.request.intent.slots
+        car_color = slots["car_color"].value
+        car_type = slots["car_type"].value
+        speak_output = ("OK, {car_color} {car_type}").format(car_color=car_color, car_type=car_type)
 
         return (
             handler_input.response_builder
