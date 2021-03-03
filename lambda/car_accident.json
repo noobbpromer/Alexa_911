@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "q": " where is the location ?  "
+        "q": " Okay, stay on the line with me while I get your information. <break time='0.5s'/> Do you know where is the location ?  "
 
     },
     {
