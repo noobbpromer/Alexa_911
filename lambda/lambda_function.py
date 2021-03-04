@@ -75,17 +75,17 @@ class LocationIntentHandler(AbstractRequestHandler):
                     .response
                 )
                 
-            # else:    
-            #     current_question_index = 0
-            #     question = accident_data2[current_question_index]["q"]
-            #     speak_output = ("{}").format(question)
+            else:    
+                current_question_index = 0
+                question = accident_data2[current_question_index]["q"]
+                speak_output = ("{}").format(question)
 
-            #     return (
-            #             handler_input.response_builder
-            #             .speak(speak_output)
-            #             .ask(speak_output)
-            #             .response
-            #     )
+                return (
+                        handler_input.response_builder
+                        .speak(speak_output)
+                        .ask(speak_output)
+                        .response
+                )
 
         # else:
         #     current_question_index = 0
