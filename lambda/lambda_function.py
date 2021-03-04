@@ -60,7 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
         prepositions=slots["prepositions"].value
-        someone=slots["someone"].value
+        someone=slots["someone"].value[1]
         verb=slots["verb"].value
         incident=slots["incident"].value
         
