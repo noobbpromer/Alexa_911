@@ -38,7 +38,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         session_attributes["quiz_started"] = False
         
-        speak_output = "912, what is yoyr emergency？"
+        speak_output = "912, what is your emergency？"
 
         return (
             handler_input.response_builder
@@ -65,17 +65,26 @@ class LocationIntentHandler(AbstractRequestHandler):
         incident=slots["incident"].value
         
         # the user not give alexa location
-        if (location ==None) and (someone !=None) and (verb !=None) and (incident !=None)  :
-            current_question_index = 0
-            
-            question = accident_data2[current_question_index]["q"]
-            speak_output = ("{}").format(question)
-            
-            return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .response
+        if (location ==None) :
+            if (someone ==None) or (verb ==None) or (incident ==None):
+                speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
+                return (
+                    handler_input.response_builder
+                    .speak(speak_output)
+                    .ask(speak_output)
+                    .response
+                )
+                
+            else:    
+                current_question_index = 0
+                question = accident_data2[current_question_index]["q"]
+                speak_output = ("{}").format(question)
+
+                return (
+                        handler_input.response_builder
+                        .speak(speak_output)
+                        .ask(speak_output)
+                        .response
                 )
 
         else:
