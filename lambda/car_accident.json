@@ -9,14 +9,16 @@
         "q": " <break time='0.5s'/>  Okay, stay on the line with me while I get your information. <break time='0.5s'/> Do you know if there are injuries?"
 
     },
-    {
-        "id": "3",
-        "q": " <break time='0.5s'/> what is car color?"
+    
+    { 
+         "id": "3",
+        "q": " <break time='0.5s'/>  Okay, stay on the line with me while I get your information. <break time='0.5s'/> Do you know if there are injuries?"
+        
 
     },
     {
         "id": "4",
-        "q": "Question4 <break time='0.5s'/>  tell me you day of born."
+        "q": "What is the car color?"
     },
     {
         "id": "5",
