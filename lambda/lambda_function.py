@@ -65,6 +65,13 @@ class LocationIntentHandler(AbstractRequestHandler):
             current_question_index = 0
             question = accident_data[current_question_index]["q"]
             speak_output = ("<break time='0.5s'/> {}").format(question)
+            
+            return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+                )
 
         else:
             current_question_index = 1
