@@ -59,8 +59,8 @@ class LocationIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
-        prepositions=slots["prepositions"].value[2]
-        someone=slots["someone"].value[2]
+        prepositions=slots["prepositions"].value
+        someone=slots["someone"].value
         verb=slots["verb"].value
         incident=slots["incident"].value
         
