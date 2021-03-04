@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "q": "  <break time='0.5s'/>  How bad was the accident ? Is there anyone who needs immediate medical attention? "
+        "q": "Okay, stay on the line with me while I get your information. <break time='0.5s'/> What is the location of the accident ?"
 
     },
     {

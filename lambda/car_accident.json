@@ -1,27 +1,22 @@
 [
     {
         "id": "1",
-        "q": "  <break time='0.5s'/>  How bad was the accident ? Is there anyone who needs immediate medical attention? "
-
-    },
-    {
-        "id": "2",
         "q": " <break time='0.5s'/>  Okay, stay on the line with me while I get your information. <break time='0.5s'/> How bad was the accident ? Is there anyone who needs immediate medical attention?"
 
     },
     
     { 
-         "id": "3",
+         "id": "2",
         "q": " <break time='0.5s'/>  How bad was the accident ? Is there anyone who needs immediate medical attention? "
         
 
     },
     {
-        "id": "4",
+        "id": "3",
         "q": "What is the car color?"
     },
     {
-        "id": "5",
+        "id": "4",
         "q": "Question5 <break time='0.5s'/> Do you have any Work experience？ "
 
     }
