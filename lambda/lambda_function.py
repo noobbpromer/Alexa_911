@@ -66,14 +66,11 @@ class LocationIntentHandler(AbstractRequestHandler):
         
         # the user not give alexa location
         if (location ==None) :
-            if (someone ==None) and (verb ==None) and (incident ==None):
+            if (someone not in slots["someone"].value) :
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
-                return (
-                    handler_input.response_builder
-                    .speak(speak_output)
-                    .ask(speak_output)
-                    .response
-                )
+                
+                
+                
                 
             else:    
                 current_question_index = 0
