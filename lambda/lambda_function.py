@@ -137,7 +137,7 @@ class AnswerIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         slots = handler_input.request_envelope.request.intent.slots
         answer = slots["answer"].value
-        current_question_index = session_attributes["current_question_index"] + 1
+        current_question_index = session_attributes["current_question_index"] + 2
         if current_question_index < 5:
             question = accident_data[current_question_index]["q"]
             speak_output = (" {}").format(question)
