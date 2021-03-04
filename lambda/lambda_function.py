@@ -65,7 +65,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             current_question_index = 0
             
             question = accident_data[current_question_index]["q"]
-            speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
+            speak_output = ("{}").format(question)
             
             return (
             handler_input.response_builder
