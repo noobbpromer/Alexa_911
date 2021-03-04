@@ -24,6 +24,7 @@ logger.setLevel(logging.INFO)
 
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
+accident_data2 = json.loads(open('car_accident2.json').read())
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -64,7 +65,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         if location ==None:
             current_question_index = 0
             
-            question = accident_data[current_question_index]["q"]
+            question = accident_data2[current_question_index]["q"]
             speak_output = ("{}").format(question)
             
             return (
@@ -75,7 +76,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 )
 
         else:
-            current_question_index = 1
+            current_question_index = 0
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
@@ -144,7 +145,7 @@ class AnswerIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
         slots = handler_input.request_envelope.request.intent.slots
-        answer = slots["answer"].value
+        # answer = slots["answer"].value 
         current_question_index = session_attributes["current_question_index"] + 1
         if current_question_index < 5:
             question = accident_data[current_question_index]["q"]
