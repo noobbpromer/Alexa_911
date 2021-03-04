@@ -60,9 +60,11 @@ class LocationIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
         prepositions=slots["prepositions"].value
+        someone=slots["someone"].value
+        verb=slots["verb"].value
         
         # the user not give alexa location
-        if location ==None:
+        if location ==None and someone !==None and verb !=None:
             current_question_index = 0
             
             question = accident_data2[current_question_index]["q"]
