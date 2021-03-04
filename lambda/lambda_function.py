@@ -64,7 +64,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         verb=slots["verb"].value
         
         # the user not give alexa location
-        if location ==None and someone !==None and verb !=None:
+        if location ==None :
             current_question_index = 0
             
             question = accident_data2[current_question_index]["q"]
