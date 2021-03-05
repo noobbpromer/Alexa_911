@@ -103,7 +103,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         
         session_attributes["quiz_started"] = True
         
-        
+        a=0
         
         quiz_started=True
         
@@ -112,6 +112,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
+                a
         )
 
 class AnswerIntentHandler(AbstractRequestHandler):
