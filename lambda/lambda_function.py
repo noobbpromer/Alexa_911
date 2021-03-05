@@ -72,9 +72,8 @@ class LocationIntentHandler(AbstractRequestHandler):
             #     speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
             # if((verb ==None)):
             #     speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
-                
             current_question_index = 0
-            question = accident_data2[current_question_index]["q"]
+            question = accident_data[current_question_index]["q"]
             speak_output = ("{someone} {}").format(question,someone=someone)
             
         else:
@@ -97,46 +96,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 .ask(speak_output)
                 .response
         )
-    
 
-
-# class AnswerIntentHandler(AbstractRequestHandler):
-#     """Handler for Help Intent."""
-#     def can_handle(self, handler_input):
-#         # type: (HandlerInput) -> bool
-#         return is_intent_name("AnswerIntent")(handler_input)
-
-#     def handle(self, handler_input):
-#         # type: (HandlerInput) -> Response
-#         session_attributes = handler_input.attributes_manager.session_attributes
-#         slots = handler_input.request_envelope.request.intent.slots
-#         answer = slots["answer"].value
-        
-        # current_question_index = session_attributes["current_question_index"] + 1
-        
-        # if current_question_index == 2:
-        #     question = accident_data[current_question_index]["q"]
-        #     next_question_speech = (" {}").format(question)
-        #     session_attributes["current_question_index"] = current_question_index
-        #     session_attributes["question"] = question
-        # next_question_speech="pass"
-
-        # else:
-        #     next_question_speech = ("thank you for taking the survey!")
-
-        #     return(
-
-        #         handler_input.response_builder
-        #             .speak(next_question_speech)
-        #             .set_should_end_session(True)
-        #             .response
-        #     )
-        # return (
-        #     handler_input.response_builder
-        #         .speak(next_question_speech)
-        #         .ask(speak_output)
-        #         .response
-        # )   
 class AnswerIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
