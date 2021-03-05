@@ -84,6 +84,10 @@ class LocationIntentHandler(AbstractRequestHandler):
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
+        else:
+            speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
+            
+            
             
             
         session_attributes["current_question_index"] = current_question_index
