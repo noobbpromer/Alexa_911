@@ -60,7 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         
-        # self.count=self.count+1
+        self.count=self.count+1
         
         location = slots["location"].value
         prepositions=slots["prepositions"].value
