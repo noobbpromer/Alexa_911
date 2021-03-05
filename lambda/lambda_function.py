@@ -51,6 +51,7 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
+        self.count = count
         return is_intent_name("LocationIntent")(handler_input)
 
     def handle(self, handler_input):
@@ -58,18 +59,21 @@ class LocationIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
+        
+        self.count=self.count+1
+        
         location = slots["location"].value
         prepositions=slots["prepositions"].value
         someone=slots["someone"].value
         # s1=slots["someone"].confirmationStatus
         verb=slots["verb"].value
         incident=slots["incident"].value
-        if_enter=0
+        
         
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
-            if_enter= if_enter+1
+            # if_enter= if_enter+1
             
             
             question = accident_data[current_question_index]["q"]
@@ -85,7 +89,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
-            if ((someone ==None) or (verb ==None) or (incident ==None)) and (a==1):
+            if ((someone ==None) or (verb ==None) or (incident ==None)) :
                 
                 
                 current_question_index = 2
@@ -99,7 +103,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         
         session_attributes["quiz_started"] = True
         
-        a=if_enter
+        
         
         quiz_started=True
         
