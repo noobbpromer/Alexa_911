@@ -67,11 +67,13 @@ class LocationIntentHandler(AbstractRequestHandler):
         
         # the user not give alexa location
         if (location ==None) :
-            current_question_index = 0
-            question = accident_data[current_question_index]["q"]
-            speak_output = (" {}").format(question)
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
+                
+            else:
+                current_question_index = 0
+                question = accident_data[current_question_index]["q"]
+                speak_output = (" {}").format(question)
                 
             
         if (location !=None):
