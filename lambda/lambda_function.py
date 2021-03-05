@@ -76,7 +76,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             question = accident_data[current_question_index]["q"]
             speak_output = ("{}").format(question)
             if (location !=None):
-                current_question_index = 1
+                current_question_index = 2
                 question = accident_data[current_question_index]["q"]
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
