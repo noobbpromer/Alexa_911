@@ -74,14 +74,17 @@ class LocationIntentHandler(AbstractRequestHandler):
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
-        if(location !=None) and (prepositions!=None) and (someone ==None) and (verb ==None) and (incident ==None) :
-            speak_output = ("nice")
+
                 
                
         if (location !=None)  and (someone !=None) and (verb !=None) and (incident !=None):
             current_question_index = 1
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
+            
+            
+        if(location !=None) and (prepositions!=None) and (someone ==None) and (verb ==None) and (incident ==None) :
+            speak_output = ("nice")
         
         # else:
         #     speak_output = ("this is else.")
