@@ -66,38 +66,27 @@ class LocationIntentHandler(AbstractRequestHandler):
         
         # the user not give alexa location
         if (location ==None) :
-            if (someone ==None) :
-                speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
-            if (verb ==None):
-                speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
-            if((verb ==None)):
-                speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
+            # if (someone ==None) :
+            #     speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
+            # if (verb ==None):
+            #     speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
+            # if((verb ==None)):
+            #     speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
-                
-                
-                
-            else:    
-                current_question_index = 0
-                question = accident_data2[current_question_index]["q"]
-                speak_output = ("{someone} {}").format(question,someone=someone)
-
-                return (
-                        handler_input.response_builder
-                        .speak(speak_output)
-                        .ask(speak_output)
-                        .response
-                )
-
-        # else:
-        #     current_question_index = 0
-        #     question = accident_data[current_question_index]["q"]
-        #     speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
+            current_question_index = 0
+            question = accident_data2[current_question_index]["q"]
+            speak_output = ("{someone} {}").format(question,someone=someone)
             
-        # session_attributes["current_question_index"] = current_question_index
-        # session_attributes["question"] = question
+        else:
+            current_question_index = 0
+            question = accident_data[current_question_index]["q"]
+            speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
+            
+        session_attributes["current_question_index"] = current_question_index
+        session_attributes["question"] = question
         
-        # session_attributes["quiz_started"] = True
-        # quiz_started=True
+        session_attributes["quiz_started"] = True
+        quiz_started=True
 
         
             
