@@ -102,7 +102,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 
         session_attributes["current_question_index"] = current_question_index
         
-        # session_attributes["if_enter"]=if_enter
+        session_attributes["if_enter"]=if_enter
         
         session_attributes["question"] = question
         
