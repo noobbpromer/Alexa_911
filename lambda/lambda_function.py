@@ -74,7 +74,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
-        if(location !=None) and (prepositions!=None) and (current_question_index = 0):
+        if(location !=None) and (prepositions!=None) and (current_question_index == 0):
             speak_output = ("nice")
                 
                 
