@@ -60,7 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         
-        handle.counter+=1
+        # handle.counter+=1
         
         location = slots["location"].value
         prepositions=slots["prepositions"].value
@@ -262,7 +262,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
 
 
-LocationIntentHandler.handle.counter=0
+# LocationIntentHandler.handle.counter=0
 sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
