@@ -60,7 +60,8 @@ class LocationIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         location = slots["location"].value
         prepositions=slots["prepositions"].value
-        someone=slots["someone"].confirmationStatus
+        someone=slots["someone"].value
+        s1=slots["someone"].confirmationStatus
         verb=slots["verb"].value
         incident=slots["incident"].value
         
@@ -69,7 +70,7 @@ class LocationIntentHandler(AbstractRequestHandler):
 
             current_question_index = 0
             question = accident_data[current_question_index]["q"]
-            speak_output = ("{}").format(question)
+            speak_output = ("{s1} {}").format(question,s1=s1)
             if (someone ==None) :
                 
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
