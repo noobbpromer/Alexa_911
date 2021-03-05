@@ -51,7 +51,7 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        self.count = count
+        # self.count = count
         return is_intent_name("LocationIntent")(handler_input)
 
     def handle(self, handler_input):
@@ -60,7 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         
-        self.count=self.count+1
+        # self.count=self.count+1
         
         location = slots["location"].value
         prepositions=slots["prepositions"].value
