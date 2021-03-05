@@ -69,7 +69,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
-            if_enter=1
+            
             question = accident_data[current_question_index]["q"]
             speak_output = (" {}").format(question)
             
@@ -85,11 +85,14 @@ class LocationIntentHandler(AbstractRequestHandler):
             
             if (someone ==None) or (verb ==None) or (incident ==None) :
                 
-                if if_enter==1:
-                    speak_output = ("nice")
+                current_question_index = 2
+                question = accident_data[current_question_index]["q"]
+                speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
+                
+                
+                
                     
-                if if_enter==0:
-                    speak_output =("hey yo")
+                
             
             # if  (prepositions!=None) and (someone ==None) and (verb ==None) and (incident ==None) :
                 
