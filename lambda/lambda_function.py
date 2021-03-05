@@ -91,13 +91,13 @@ class LocationIntentHandler(AbstractRequestHandler):
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
-            if ((someone ==None) or (verb ==None) or (incident ==None)) :
-                if_enter=1
+            # if ((someone ==None) or (verb ==None) or (incident ==None)) :
+            #     if_enter=1
                 
                 
-                current_question_index = 2
-                question = accident_data[current_question_index]["q"]
-                speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
+            #     current_question_index = 2
+            #     question = accident_data[current_question_index]["q"]
+            #     speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
                 
                 
         session_attributes["current_question_index"] = current_question_index
