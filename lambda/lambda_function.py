@@ -65,7 +65,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         incident=slots["incident"].value
         
         # the user not give alexa location
-        if (location ==None) and (someone !=None) and (verb !=None) and (incident !=None):
+        if (location ==None) and (someone !=None):
             # if (someone ==None) :
             #     speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
             # if (verb ==None):
@@ -75,7 +75,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             current_question_index = 0
             question = accident_data[current_question_index]["q"]
             speak_output = ("{}").format(question)
-            else:
+            else if (someone ==None ):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
             
@@ -84,7 +84,6 @@ class LocationIntentHandler(AbstractRequestHandler):
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
-        # else:
             
             
         session_attributes["current_question_index"] = current_question_index
