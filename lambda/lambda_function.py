@@ -60,7 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         
-        # handle.counter+=1
+        
         
         location = slots["location"].value
         prepositions=slots["prepositions"].value
@@ -73,7 +73,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
-            # if_enter= if_enter+1
+            if_enter= if_enter=0
             
             
             question = accident_data[current_question_index]["q"]
@@ -86,6 +86,8 @@ class LocationIntentHandler(AbstractRequestHandler):
             
         if (location !=None) :
             current_question_index = 1
+            if_enter= if_enter=1
+            
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
@@ -99,11 +101,13 @@ class LocationIntentHandler(AbstractRequestHandler):
                 
         session_attributes["current_question_index"] = current_question_index
         
+        session_attributes["if_enter"]=if_enter
+        
         session_attributes["question"] = question
         
         session_attributes["quiz_started"] = True
         
-        a=0
+        
         
         quiz_started=True
         
