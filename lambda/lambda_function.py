@@ -52,7 +52,7 @@ class LocationIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input,counter):
         # type: (HandlerInput) -> bool
         self.counter=counter
-        return is_intent_name("LocationIntent")(handler_input)
+        return ((is_intent_name("LocationIntent")(handler_input)),(is_intent_name("LocationIntent")(counter)))
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
