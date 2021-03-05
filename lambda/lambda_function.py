@@ -112,7 +112,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
-                a
+                
         )
 
 class AnswerIntentHandler(AbstractRequestHandler):
