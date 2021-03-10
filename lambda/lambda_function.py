@@ -52,8 +52,8 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input,counter):
         # type: (HandlerInput) -> bool
-        counter=0
-        return is_intent_name("LocationIntent")(handler_input) and (counter)
+        
+        return is_intent_name("LocationIntent")(handler_input) 
 # sb.add_request_handler(LocationIntentHandler())
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
@@ -76,7 +76,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
-            
+            session_attributes["quiz_started"] = True
             
             
             question = accident_data[current_question_index]["q"]
@@ -110,10 +110,6 @@ class LocationIntentHandler(AbstractRequestHandler):
         
         
         session_attributes["question"] = question
-        
-        session_attributes["quiz_started"] = True
-        
-        
         
         quiz_started=True
         
