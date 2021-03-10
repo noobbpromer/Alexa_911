@@ -102,7 +102,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 question = accident_data[current_question_index]["q"]
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
                 
-                if (session_attributes["if_enter"]==0):
+                if (session_attributes["if_enter"]==1):
                     
                     speak_output=("got this ")
                 
