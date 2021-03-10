@@ -77,10 +77,10 @@ class LocationIntentHandler(AbstractRequestHandler):
             if_enter=0
             counter+=1
             
-            if counter ==1:
+            
                 
-                question = accident_data[current_question_index]["q"]
-                speak_output = ("{}").format(question)
+            question = accident_data[current_question_index]["q"]
+            speak_output = ("{}").format(question)
             
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
