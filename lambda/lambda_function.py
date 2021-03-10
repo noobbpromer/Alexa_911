@@ -98,10 +98,13 @@ class LocationIntentHandler(AbstractRequestHandler):
             
             if ((someone ==None) or (verb ==None) or (incident ==None)) :
                 
-                
                 current_question_index = 2
                 question = accident_data[current_question_index]["q"]
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
+                
+                if (session_attributes["if_enter"]==0):
+                    
+                    speak_output=("got this ")
                 
                 
         session_attributes["current_question_index"] = current_question_index
