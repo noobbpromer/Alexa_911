@@ -120,6 +120,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         quiz_started=True
         
         return (
+            counter
             handler_input.response_builder
                 .speak(speak_output)
                 .ask(speak_output)
