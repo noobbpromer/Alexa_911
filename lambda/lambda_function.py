@@ -53,14 +53,14 @@ class LocationIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         counter=0
-        return is_intent_name("LocationIntent")(handler_input)(counter)
+        return is_intent_name("LocationIntent")(handler_input)
 # sb.add_request_handler(LocationIntentHandler())
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
-        
+        cc=100
         
         
         location = slots["location"].value
@@ -117,6 +117,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
+                cc
                 
         )
 
