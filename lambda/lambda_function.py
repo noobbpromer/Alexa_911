@@ -105,8 +105,8 @@ class LocationIntentHandler(AbstractRequestHandler):
                 question = accident_data[current_question_index]["q"]
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
                 
-                if(counter==1):
-                    speak_output=("yes")
+                if(counter==0):
+                    speak_output=("this is 911 call, do you mean you see accident in here?")
                 
                 
         
