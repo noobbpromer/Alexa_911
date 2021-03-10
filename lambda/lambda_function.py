@@ -50,7 +50,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
     
 class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
-    def can_handle(self, handler_input,counter):
+    def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         
         return is_intent_name("LocationIntent")(handler_input) 
