@@ -25,6 +25,7 @@ logger.setLevel(logging.INFO)
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
 accident_data2 = json.loads(open('car_accident2.json').read())
+a=100
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
