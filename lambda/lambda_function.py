@@ -60,7 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
-        cc=100
+        
         
         
         location = slots["location"].value
@@ -75,6 +75,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         if (location ==None) :
             current_question_index = 0
             if_enter=0
+            counter=1
             
             
             question = accident_data[current_question_index]["q"]
@@ -88,12 +89,14 @@ class LocationIntentHandler(AbstractRequestHandler):
         if (location !=None) :
             current_question_index = 1
             if_enter=1
+            counter=2
             
             
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
             if ((someone ==None) or (verb ==None) or (incident ==None)) :
+                
                 
                 current_question_index = 2
                 question = accident_data[current_question_index]["q"]
@@ -117,7 +120,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
-                cc
+                
                 
         )
 
