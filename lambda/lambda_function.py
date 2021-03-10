@@ -50,17 +50,17 @@ class LaunchRequestHandler(AbstractRequestHandler):
     
 class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
-    def can_handle(self, handler_input,counter):
+    def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        counter=0
-        return is_intent_name("LocationIntent")(handler_input) and (counter)
+        
+        return is_intent_name("LocationIntent")(handler_input) 
 # sb.add_request_handler(LocationIntentHandler())
     def handle(self, handler_input,counter):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
-        counter=0
+        
         
         
         
