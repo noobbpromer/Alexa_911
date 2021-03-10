@@ -89,7 +89,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             
         if (location !=None) :
             current_question_index = 1
-            if_enter=1
+            # if_enter=1
             counter=2
             
             
