@@ -25,7 +25,7 @@ logger.setLevel(logging.INFO)
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
 accident_data2 = json.loads(open('car_accident2.json').read())
-counter=0
+# counter=0
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -77,20 +77,18 @@ class LocationIntentHandler(AbstractRequestHandler):
         if (location ==None) :
             current_question_index = 0
             
-            # counter=counter+1
+            
             
             question = accident_data[current_question_index]["q"]
             speak_output = ("{}").format(question)
             
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
-                
-        # session_attributes["counter"]=counter
+        
             
         if (location !=None) :
-            # current_question_index = 1
-            # if_enter=1
-            # counter=2
+            current_question_index = 1
+
 
 
             question = accident_data[current_question_index]["q"]
@@ -103,9 +101,6 @@ class LocationIntentHandler(AbstractRequestHandler):
                 question = accident_data[current_question_index]["q"]
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
                 
-                # if (session_attributes["if_enter"]==0):
-                    
-                #     speak_output=("got this ")
                 
                 
         session_attributes["current_question_index"] = current_question_index
@@ -279,7 +274,6 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
 
 
-# LocationIntentHandler.handle.counter=0
 sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
