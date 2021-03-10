@@ -69,23 +69,23 @@ class LocationIntentHandler(AbstractRequestHandler):
         # s1=slots["someone"].confirmationStatus
         verb=slots["verb"].value
         incident=slots["incident"].value
+        if_enter=0
         
         
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
-            if_enter=0
+            if_enter=1
+            
             counter=1
             
-            
-                
             question = accident_data[current_question_index]["q"]
             speak_output = ("{}").format(question)
             
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
-
+        session_attributes["if_enter"]=if_enter
             
         if (location !=None) :
             current_question_index = 1
@@ -96,7 +96,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
-            if ((someone ==None) or (verb ==None) or (incident ==None)) :
+            if ((someone ==None) or (verb ==None) or (incident ==None)) and (session_attributes["if_enter"]==1):
                 
                 
                 current_question_index = 2
@@ -106,7 +106,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 
         session_attributes["current_question_index"] = current_question_index
         
-        session_attributes["if_enter"]=if_enter
+        
         
         session_attributes["question"] = question
         
