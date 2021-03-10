@@ -52,9 +52,9 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        b=100
-        return is_intent_name("LocationIntent")(handler_input)
-
+        counter=0
+        return is_intent_name("LocationIntent")(handler_input)(counter)
+# sb.add_request_handler(LocationIntentHandler())
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
