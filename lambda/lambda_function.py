@@ -118,7 +118,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         return (
             
             handler_input.response_builder
-                .counter
+                # .counter
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
