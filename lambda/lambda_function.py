@@ -25,7 +25,7 @@ logger.setLevel(logging.INFO)
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
 accident_data2 = json.loads(open('car_accident2.json').read())
-# counter=0
+counter=0
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -60,6 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
+        counter=0
         
         
         
@@ -84,7 +85,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
-        session_attributes["counter"]=counter
+        # session_attributes["counter"]=counter
             
         if (location !=None) :
             # current_question_index = 1
@@ -120,9 +121,9 @@ class LocationIntentHandler(AbstractRequestHandler):
         quiz_started=True
         
         return (
-            counter
-            handler_input.response_builder
             
+            handler_input.response_builder
+                .counter
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
