@@ -52,8 +52,8 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        
-        return is_intent_name("LocationIntent")(handler_input) 
+        counter=0
+        return is_intent_name("LocationIntent")(handler_input) and (counter)
 # sb.add_request_handler(LocationIntentHandler())
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
@@ -82,7 +82,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             question = accident_data[current_question_index]["q"]
             speak_output = ("{}").format(question)
             
-            speak_output.num=0
+            
             
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
