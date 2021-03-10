@@ -60,7 +60,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
-        
+        counter=0
         
         
         
