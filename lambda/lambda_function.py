@@ -37,7 +37,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
-        session_attributes["quiz_started"] = 0
+        session_attributes["if_enter"] = 0
         
         speak_output = "912, what is your emergency？"
 
@@ -76,7 +76,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
-            session_attributes["quiz_started"] = 1
+            session_attributes["if_enter"] = 1
             
             
             question = accident_data[current_question_index]["q"]
@@ -87,7 +87,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
         
-        counter = session_attributes["quiz_started"]
+        counter = session_attributes["if_enter"]
         
             
         if (location !=None) :
