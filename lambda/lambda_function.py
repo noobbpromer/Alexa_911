@@ -25,7 +25,7 @@ logger.setLevel(logging.INFO)
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
 accident_data2 = json.loads(open('car_accident2.json').read())
-a=100
+# counter=0
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -52,8 +52,8 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        counter=0
-        return is_intent_name("LocationIntent")(handler_input)
+        counter=100
+        return is_intent_name("LocationIntent")(handler_input) and(counter)
 # sb.add_request_handler(LocationIntentHandler())
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
@@ -69,15 +69,14 @@ class LocationIntentHandler(AbstractRequestHandler):
         # s1=slots["someone"].confirmationStatus
         verb=slots["verb"].value
         incident=slots["incident"].value
-        if_enter=0
+        
         
         
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
-            if_enter=1
             
-            counter=1
+            # counter=counter+1
             
             question = accident_data[current_question_index]["q"]
             speak_output = ("{}").format(question)
@@ -85,26 +84,27 @@ class LocationIntentHandler(AbstractRequestHandler):
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
-        session_attributes["if_enter"]=if_enter
+        # session_attributes["counter"]=counter
             
         if (location !=None) :
             current_question_index = 1
             # if_enter=1
-            counter=2
-            
-            
+            # counter=2
+
+
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
+
             if ((someone ==None) or (verb ==None) or (incident ==None)) :
                 
                 current_question_index = 2
                 question = accident_data[current_question_index]["q"]
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
                 
-                if (session_attributes["if_enter"]==1):
+                # if (session_attributes["if_enter"]==0):
                     
-                    speak_output=("got this ")
+                #     speak_output=("got this ")
                 
                 
         session_attributes["current_question_index"] = current_question_index
