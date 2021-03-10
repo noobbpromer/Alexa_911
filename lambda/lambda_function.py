@@ -52,8 +52,8 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        counter=0
-        return is_intent_name("LocationIntent")(handler_input) and (counter)
+        
+        return is_intent_name("LocationIntent")(handler_input) 
 # sb.add_request_handler(LocationIntentHandler())
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
@@ -118,7 +118,6 @@ class LocationIntentHandler(AbstractRequestHandler):
         return (
             
             handler_input.response_builder
-                # .counter
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
