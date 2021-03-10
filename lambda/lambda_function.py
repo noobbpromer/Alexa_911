@@ -52,10 +52,10 @@ class LocationIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        counter=100
+        counter=0
         return is_intent_name("LocationIntent")(handler_input) and(counter)
 # sb.add_request_handler(LocationIntentHandler())
-    def handle(self, handler_input):
+    def handle(self, handler_input,counter):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
         # quiz_started = session_attributes["quiz_started"]
@@ -84,10 +84,10 @@ class LocationIntentHandler(AbstractRequestHandler):
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
                 
-        # session_attributes["counter"]=counter
+        session_attributes["counter"]=counter
             
         if (location !=None) :
-            current_question_index = 1
+            # current_question_index = 1
             # if_enter=1
             # counter=2
 
