@@ -92,9 +92,7 @@ class LocationIntentHandler(AbstractRequestHandler):
             
         if (location !=None) :
             current_question_index = 1
-
-
-
+            
             question = accident_data[current_question_index]["q"]
             speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
             
@@ -105,8 +103,8 @@ class LocationIntentHandler(AbstractRequestHandler):
                 question = accident_data[current_question_index]["q"]
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
                 
-                if(counter==0):
-                    speak_output=("this is 911 call, if you have emergency,please tell me what is the incident, such as i see an accident,or i see an accident plus location")
+                # if(counter==0):
+                #     speak_output=("this is 911 call, if you have emergency,please tell me what is the incident, such as i see an accident,or i see an accident plus location")
                 
                 
         
