@@ -39,7 +39,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         session_attributes["if_enter"] = 0
         
-        speech_output = random.choice(greet_data ["GREETING"])
+        speech_output = " nine one one, what is your emergency?"
 
         return (
             handler_input.response_builder
@@ -275,6 +275,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 # The SkillBuilder object acts as the entry point for your skill, routing all request and response
 # payloads to the handlers above. Make sure any new handlers or interceptors you've
 # defined are included below. The order matters - they're processed top to bottom.
+
 
 
 
