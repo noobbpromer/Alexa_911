@@ -39,7 +39,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         session_attributes["if_enter"] = 0
         
-        speak_output = ("nine one one, what is your emergency?")
+        speak_output = "nine one one, what is your emergency?"
 
         return (
             handler_input.response_builder
