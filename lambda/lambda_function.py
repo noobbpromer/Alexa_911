@@ -107,7 +107,6 @@ class LocationIntentHandler(AbstractRequestHandler):
                         
                         speak_output=(reply['reply'])
                     
-                    # speak_output=("this is 911 call, if you have emergency,please tell me what is the incident, such as i see an accident,or i see an accident plus location")
 
         session_attributes["current_question_index"] = current_question_index
         session_attributes["question"] = question
