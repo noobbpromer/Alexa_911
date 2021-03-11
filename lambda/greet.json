@@ -1,9 +1,10 @@
-[
-    {
-        "GREETING":" 911, what is your emrgency ?"
-        
+{
+    "GREETING": [{
+
+        "greet": " 911,what is your emergency? "
     }
-    
-    
-    
+
     ]
+
+
+}
