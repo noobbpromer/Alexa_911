@@ -39,7 +39,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         session_attributes["if_enter"] = 0
         
-        speak_output = "911,what is your emergency ? "
+        speech_output = random.choice(greet_data ["GREETING"])
 
         return (
             handler_input.response_builder
