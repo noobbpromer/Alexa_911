@@ -80,7 +80,9 @@ class LocationIntentHandler(AbstractRequestHandler):
             speak_output = ("{}").format(question)
             
             if (someone ==None) or (verb ==None) or (incident ==None):
+                
                 for reply in greet_data['NOT_FULL_SENTENCE']:
+                    
                     speak_output= (reply['reply'])
                     
                 # speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
@@ -101,7 +103,11 @@ class LocationIntentHandler(AbstractRequestHandler):
                 speak_output = ("{prepositions} {location} ? {}").format(question,prepositions=prepositions,location=location)
                 
                 if(counter==0):
-                    speak_output=("this is 911 call, if you have emergency,please tell me what is the incident, such as i see an accident,or i see an accident plus location")
+                    for reply in greet_data['FIRST_ENTER_ERROR']:
+                        
+                        speak_output=(reply['reply'])
+                    
+                    # speak_output=("this is 911 call, if you have emergency,please tell me what is the incident, such as i see an accident,or i see an accident plus location")
 
         session_attributes["current_question_index"] = current_question_index
         session_attributes["question"] = question
