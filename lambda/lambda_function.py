@@ -24,7 +24,7 @@ logger.setLevel(logging.INFO)
 
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
-accident_data2 = json.loads(open('car_accident2.json').read())
+greet_data = json.loads(open('greet.json').read())
 counter=0
 
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -39,7 +39,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         session_attributes["if_enter"] = 0
         
-        speak_output = "912, what is your emergency？"
+        speak_output = greet_data["GREETING"]
 
         return (
             handler_input.response_builder
@@ -61,9 +61,6 @@ class LocationIntentHandler(AbstractRequestHandler):
         # quiz_started = session_attributes["quiz_started"]
         slots = handler_input.request_envelope.request.intent.slots
         
-        
-        
-        
         location = slots["location"].value
         prepositions=slots["prepositions"].value
         someone=slots["someone"].value
@@ -71,25 +68,19 @@ class LocationIntentHandler(AbstractRequestHandler):
         verb=slots["verb"].value
         incident=slots["incident"].value
         
-        
-        
         # the user not give alexa location
         if (location ==None) :
             current_question_index = 0
             session_attributes["if_enter"] = 1
             
-            
             question = accident_data[current_question_index]["q"]
             speak_output = ("{}").format(question)
-            
-            
             
             if (someone ==None) or (verb ==None) or (incident ==None):
                 speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
         
         counter = session_attributes["if_enter"]
         
-            
         if (location !=None) :
             current_question_index = 1
             
@@ -105,11 +96,7 @@ class LocationIntentHandler(AbstractRequestHandler):
                 
                 if(counter==0):
                     speak_output=("this is 911 call, if you have emergency,please tell me what is the incident, such as i see an accident,or i see an accident plus location")
-                
-                
-        
-        
-                
+
         session_attributes["current_question_index"] = current_question_index
         session_attributes["question"] = question
         
@@ -197,6 +184,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
+        session_attributes = handler_input.attributes_manager.session_attributes
         speak_output = "yes Thank you"
 
         return (
