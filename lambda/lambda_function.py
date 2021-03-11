@@ -147,6 +147,24 @@ class AnswerIntentHandler(AbstractRequestHandler):
                 .ask(speak_output)
                 .response
         )
+class InjuriesIntentHandler(AbstractRequestHandler):
+    """Handler for Help Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("InjuriesIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        session_attributes = handler_input.attributes_manager.session_attributes
+        speak_output = "yes Thank you"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+    
 class OutlookIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
@@ -187,23 +205,7 @@ class HelpIntentHandler(AbstractRequestHandler):
                 .response
         )
 
-class InjuriesIntentHandler(AbstractRequestHandler):
-    """Handler for Help Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("InjuriesIntent")(handler_input)
 
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        session_attributes = handler_input.attributes_manager.session_attributes
-        speak_output = "yes Thank you"
-
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .response
-        )
 
 
 class CancelOrStopIntentHandler(AbstractRequestHandler):
