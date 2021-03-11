@@ -24,7 +24,7 @@ logger.setLevel(logging.INFO)
 
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
-# greet_data = json.loads(open('greet.json').read())
+greet_data = json.loads(open('greet.json').read())
 counter=0
 
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -39,7 +39,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         session_attributes["if_enter"] = 0
         
-        speak_output = "nine one one, what is your emergency?"
+        speak_output = greet_data['GREETING']
 
         return (
             handler_input.response_builder
