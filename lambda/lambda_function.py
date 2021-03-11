@@ -24,7 +24,7 @@ logger.setLevel(logging.INFO)
 
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
-greet_data = json.loads(open('greet.json').read())
+# greet_data = json.loads(open('greet.json').read())
 counter=0
 
 class LaunchRequestHandler(AbstractRequestHandler):
