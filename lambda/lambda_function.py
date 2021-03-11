@@ -39,9 +39,9 @@ class LaunchRequestHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         session_attributes["if_enter"] = 0
         
-        for i  in greet_data['GREETING']:
+        for greet  in greet_data['GREETING']:
             
-            speak_output=(i['greet'])
+            speak_output=(greet['greet'])
              
 
         return (
@@ -80,7 +80,10 @@ class LocationIntentHandler(AbstractRequestHandler):
             speak_output = ("{}").format(question)
             
             if (someone ==None) or (verb ==None) or (incident ==None):
-                speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
+                for reply in greet_data['NOT_FULL_SENTENCE']:
+                    speak_output= (reply['reply'])
+                    
+                # speak_output = ("I'm sorry, I didn't get that. if you have emergency, Could you please tell me what the incident was again?")
         
         counter = session_attributes["if_enter"]
         
