@@ -162,7 +162,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         # situation=slots["situation"].value
         what_happen=slots["what_happen"].value
         
-        speak_output = ("{what_happen}")
+        speak_output = ("{what_happen}").format(what_happen=what_happen)
 
         return (
             handler_input.response_builder
