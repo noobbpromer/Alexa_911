@@ -160,8 +160,9 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         
         # situation=slots["situation"].value
+        what_happen=slots["what_happen"].value
         
-        speak_output = (" hahah  ")
+        speak_output = ("{what_happen}")
 
         return (
             handler_input.response_builder
