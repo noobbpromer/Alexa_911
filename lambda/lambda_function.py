@@ -161,7 +161,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         # situation=slots["situation"].value
         what_happen=slots["what_happen"].value
-        if 'know' in what_happen:
+        if 'dont know' in what_happen:
             
             speak_output = ("{what_happen}").format(what_happen=what_happen)
             
