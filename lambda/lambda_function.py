@@ -159,7 +159,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         session_attributes = handler_input.attributes_manager.session_attributes
         slots = handler_input.request_envelope.request.intent.slots
         
-        situation=slots["situation"].value
+        # situation=slots["situation"].value
         
         speak_output = ("{situation} ").format(situation=situation)
 
