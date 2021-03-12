@@ -161,8 +161,9 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         # situation=slots["situation"].value
         what_happen=slots["what_happen"].value
-        if len(what_happen>10):
-            speak_output = ("{what_happen}").format(what_happen=what_happen)
+        for i in what_happen:
+            
+            speak_output = ("{i}").format(what_happen=what_happen)
             
         else:
             speak_output="can catch"
