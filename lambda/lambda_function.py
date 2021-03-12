@@ -147,6 +147,7 @@ class AnswerIntentHandler(AbstractRequestHandler):
                 .ask(speak_output)
                 .response
         )
+
 class InjuriesIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
     def can_handle(self, handler_input):
@@ -156,7 +157,11 @@ class InjuriesIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
-        speak_output = "yes Thank you"
+        slots = handler_input.request_envelope.request.intent.slots
+        
+        situation=slots["situation"].value
+        
+        speak_output = ("{situation} {}").format(question,situation=situation)
 
         return (
             handler_input.response_builder
