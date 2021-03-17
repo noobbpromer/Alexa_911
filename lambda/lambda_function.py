@@ -27,6 +27,18 @@ accident_data = json.loads(open('car_accident.json').read())
 greet_data = json.loads(open('greet.json').read())
 counter=0
 
+def listToString(s):  
+    
+    # initialize an empty string 
+    str1 = ""  
+    
+    # traverse in the string   
+    for ele in s:  
+        str1 += ele   
+    
+    # return string   
+    return str1  
+
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
     def can_handle(self, handler_input):
@@ -161,10 +173,11 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         # situation=slots["situation"].value
         what_happen=slots["what_happen"].value
-        a=slots["what_happen"].value[2]
+        
+        
         
             
-        speak_output = ("{a}").format(a=a)
+        speak_output = ("{what_happen}").format(what_happen=what_happen)
             
         # else:
         #     speak_output="can catch"
