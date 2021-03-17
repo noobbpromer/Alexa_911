@@ -178,7 +178,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         for word in str_what_happen.split():
             word_list.append(word)
             
-        a=word_list[3:5]
+        a=word_list
             
             
         speak_output = ("{a}").format(a=a)
