@@ -176,7 +176,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         what_happen=slots["what_happen"].value
         str_what_happen=listToString(what_happen)
         for word in str_what_happen.split():
-            word.append(word_list)
+            word_list.append(word)
             
         a=word_list[0]
             
