@@ -42,7 +42,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         for greet  in greet_data['GREETING']:
             
             speak_output=(greet['greet'])
-             
+            
 
         return (
             handler_input.response_builder
@@ -161,9 +161,10 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         # situation=slots["situation"].value
         what_happen=slots["what_happen"].value
-        # if ' know i' in what_happen:
+        a=slots["what_happen"].value[2]
+        
             
-        speak_output = ("{what_happen}").format(what_happen=what_happen)
+        speak_output = ("{a}").format(a=a)
             
         # else:
         #     speak_output="can catch"
