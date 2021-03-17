@@ -178,10 +178,10 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         for word in str_what_happen.split():
             word_list.append(word)
             
-        a=word_list[1]
+        a=word_list[1:3]
             
             
-        speak_output = ("{word_list}").format(word_list)
+        speak_output = ("{a}").format(a)
             
         # else:
         #     speak_output="can catch"
