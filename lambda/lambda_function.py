@@ -181,7 +181,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         a=word_list[1]
             
             
-        speak_output = ("{a}").format(a=a)
+        speak_output = ("{word_list}").format(word_list)
             
         # else:
         #     speak_output="can catch"
