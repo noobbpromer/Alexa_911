@@ -172,11 +172,14 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         
         # situation=slots["situation"].value
+        word_list=[]
         what_happen=slots["what_happen"].value
-        # str_what_happen=listToString(what_happen)
-        a=what_happen[0]
-        
-        
+        str_what_happen=listToString(what_happen)
+        for word in str_what_happen.split():
+            word.append(word_list)
+            
+        a=word_list[0]
+            
             
         speak_output = ("{a}").format(a=a)
             
