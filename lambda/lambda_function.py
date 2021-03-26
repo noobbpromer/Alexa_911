@@ -47,8 +47,9 @@ def check_ele(a,b):
             if_so=True
             return i,if_so
         else:
+            c=0
             if_so=False
-            return i,if_so
+            return c,if_so
     
 
 class LaunchRequestHandler(AbstractRequestHandler):
