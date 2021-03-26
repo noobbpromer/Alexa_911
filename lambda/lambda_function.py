@@ -196,15 +196,15 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
         
-        a,b=check_ele(word_list,subject_list)
-        if b=True:
+        # a,b=check_ele(word_list,subject_list)
+        # if b=True:
             
-            speak_output=("{a}").format(a=a)
-        else:
-            speak_output=("nono {a}").format(a=a)
+        #     speak_output=("{a}").format(a=a)
+        # else:
+        #     speak_output=("nono {a}").format(a=a)
             
             
-
+        speak_output=("{subject_list").format(subject_list=subject_list)
             
         # speak_output = ("{word_list}").format(word_list=word_list)
             
