@@ -192,12 +192,12 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         for word in str_what_happen.split():
             word_list.append(word)
             
-        # subject_list=injuries_data["subject"]
+        subject_list=injuries_data["subject"]
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
         
-        for subject in injuries_data["subject"]:
-            subject_list.append(subject)
+        # for subject in injuries_data["subject"]:
+        #     subject_list.append(subject)
         
         # a,b=check_ele(word_list,subject_list)
         # if b=True:
