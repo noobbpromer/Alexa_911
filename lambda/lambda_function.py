@@ -56,7 +56,7 @@ def return_ele(a,b):
             obj=i
             return obj
         else:
-            obj= null
+            obj= None
             return obj
             
 
