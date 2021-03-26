@@ -44,12 +44,11 @@ def listToString(s):
 def check_ele(a,b):
     for i in a:
         if i in b:
-            if_so=True
-            return i,if_so
+            # if_so=True
+            return True
         else:
-            c=0
-            if_so=False
-            return c,if_so
+            # if_so=False
+            return False
     
 
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -205,10 +204,14 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         #     speak_output=("{a}").format(a=a)
         # else:
         #     speak_output=("nono {a}").format(a=a)
+        
+        if check_ele(word_list,subject_list)==True:
+            speak_output=("yes")
+        else:
             
-        speak_output=("{subject_list}").format(subject_list=subject_list)
+            # speak_output=("{subject_list}").format(subject_list=subject_list)
             
-        # speak_output = ("{word_list}").format(word_list=word_list)
+            speak_output = ("{word_list}").format(word_list=word_list)
             
 
         return (
