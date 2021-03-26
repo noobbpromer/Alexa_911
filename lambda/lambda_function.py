@@ -183,13 +183,12 @@ class InjuriesIntentHandler(AbstractRequestHandler):
             
         for subject in injuries_data["subject"]:
             a.append(subject)
-        
-        speak_output=("{a}").format(a=a)
-        
             
-            
-            
-            
+        for i in a:
+            if i not in word_list:
+                speak_output=("I dont have that ")
+            else:
+                speak_output=("hah")
             
          # speak_output = ("{word_list}").format(word_list=word_list)
             
