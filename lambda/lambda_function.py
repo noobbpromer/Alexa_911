@@ -26,6 +26,7 @@ logger.setLevel(logging.INFO)
 # question_data = json.loads(open('question_data.json').read())
 accident_data = json.loads(open('car_accident.json').read())
 greet_data = json.loads(open('greet.json').read())
+injuries_data=json.loads(open('injuries.json').read())
 counter=0
 
 def listToString(s):  
@@ -70,7 +71,7 @@ class LocationIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> bool
         
         return is_intent_name("LocationIntent")(handler_input) 
-# sb.add_request_handler(LocationIntentHandler())
+
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         session_attributes = handler_input.attributes_manager.session_attributes
