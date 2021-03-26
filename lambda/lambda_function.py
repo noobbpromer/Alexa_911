@@ -185,7 +185,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
                 speak_output=("we don't have that ")
                 
             else:
-                speak_output=(i)
+                speak_output=(subject)
                 if_subject=True
                 
         
