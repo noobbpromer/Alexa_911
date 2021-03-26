@@ -192,21 +192,17 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         subject_list=injuries_data["subject"]
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
+        
+        if check_ele(word_list,subject_list):
+            speak_output=("nice")
+        else:
+            speak_output=("oh no")
             
             
-        # for subject in injuries_data["subject"]:
-        #     a.append(subject)
+
             
-        # for i in a:
-        #     if i not in word_list:
-        #         speak_output=("I dont have that ")
-        #     else:
-        #         speak_output=("hah")
+        # speak_output = ("{word_list}").format(word_list=word_list)
             
-        speak_output = ("{word_list}").format(word_list=word_list)
-            
-        # else:
-        #     speak_output="can catch"
 
         return (
             handler_input.response_builder
