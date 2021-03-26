@@ -208,7 +208,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
 
         if check_ele(word_list,subject_list)==True:
             obj=return_ele(word_list,subject_list)
-            speak_output=("obj")
+            speak_output=("{obj}").format(obj=obj)
         else:
             
             # speak_output=("{subject_list}").format(subject_list=subject_list)
