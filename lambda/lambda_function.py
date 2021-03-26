@@ -185,7 +185,10 @@ class InjuriesIntentHandler(AbstractRequestHandler):
                 speak_output=("we don't have that ")
                 
             else:
-                speak_output=("ok")
+                speak_output=(i)
+                if_subject=True
+                
+        
                 
         #         return (
         #     handler_input.response_builder
