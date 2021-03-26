@@ -212,9 +212,9 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         #     speak_output=("{someone} {status}").format(someone=someone,status=status)
         # else:
             
-        speak_output=("{subject_list}").format(subject_list=subject_list)
+        # speak_output=("{subject_list}").format(subject_list=subject_list)
             
-            # speak_output = ("{word_list}").format(word_list=word_list)
+        speak_output = ("{word_list}").format(word_list=word_list)
             
 
         return (
