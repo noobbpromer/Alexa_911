@@ -49,6 +49,17 @@ def check_ele(a,b):
         else:
             # if_so=False
             return False
+
+def return_ele(a,b):
+    for i in a:
+        if i in b:
+            obj=i
+            return obj
+        else:
+            obj='0'
+            return obj
+            
+
     
 
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -194,19 +205,10 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         subject_list=injuries_data["subject"]
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
-        
-        # for subject in injuries_data["subject"]:
-        #     subject_list.append(subject)
-        
-        # a,b=check_ele(word_list,subject_list)
-        # if b=True:
-            
-        #     speak_output=("{a}").format(a=a)
-        # else:
-        #     speak_output=("nono {a}").format(a=a)
-        
+
         if check_ele(word_list,subject_list)==True:
-            speak_output=("yes")
+            obj=return_ele(word_list,subject_list)
+            speak_output=("obj")
         else:
             
             # speak_output=("{subject_list}").format(subject_list=subject_list)
