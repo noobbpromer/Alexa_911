@@ -44,9 +44,11 @@ def listToString(s):
 def check_ele(a,b):
     for i in a:
         if i in b:
-            return i,True
+            if_so=True
+            return i,if_so
         else:
-            return i,False
+            if_so=False
+            return i,if_so
     
 
 class LaunchRequestHandler(AbstractRequestHandler):
