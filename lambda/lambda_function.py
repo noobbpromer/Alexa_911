@@ -181,18 +181,20 @@ class InjuriesIntentHandler(AbstractRequestHandler):
             word_list.append(word)
             
         for subject in injuries_data["subject"]:
-            if subject in word_list:
-                pass
-            else:
+            if subject not in word_list:
                 speak_output=("we don't have that ")
-                return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .response
-        )
+                
+            else:
+                speak_output=("ok")
+                
+        #         return (
+        #     handler_input.response_builder
+        #         .speak(speak_output)
+        #         .ask(speak_output)
+        #         .response
+        # )
         
-        speak_output=("ok")
+        
             
             
             
