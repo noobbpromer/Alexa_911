@@ -206,7 +206,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
 
-        if  (check_ele(word_list,status_list)):
+        if  (check_ele(word_list,status_list)) and (check_ele(word_list,subject_list)):
             someone=return_ele(word_list,subject_list)
             status=return_ele(word_list,subject_list)
             speak_output=("{someone} {status}").format(someone=someone,status=status)
