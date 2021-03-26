@@ -39,7 +39,15 @@ def listToString(s):
         str1 += ele   
     
     # return string   
-    return str1  
+    return str1 
+
+def check_ele(a,b):
+    for i in a:
+        if i in b:
+            return True
+        else:
+            return False
+    
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -180,6 +188,11 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         str_what_happen=listToString(what_happen)
         for word in str_what_happen.split():
             word_list.append(word)
+            
+        subject_list=injuries_data["subject"]
+        verb_list=injuries_data["verb"]
+        status_list=injuries_data["status"]
+            
             
         # for subject in injuries_data["subject"]:
         #     a.append(subject)
