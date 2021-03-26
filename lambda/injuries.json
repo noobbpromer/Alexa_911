@@ -1,0 +1,23 @@
+{
+
+    "subject":[
+        "two people",
+        "their car",
+        "{number} people",
+        "I ",
+        "there"
+    ],
+    
+    "verb":[
+        "sit",
+        "lay",
+        "die",
+        "stand"
+        ],
+    "status":[
+        "on the ground",
+        "on fire",
+        "die"
+        ]
+        
+}
