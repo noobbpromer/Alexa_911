@@ -180,9 +180,23 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         for word in str_what_happen.split():
             word_list.append(word)
             
-        for i in injuries_data["subject"]:
+        for subject in injuries_data["subject"]:
+            if subject in word_list:
+                pass
+            else:
+                speak_output=("we don't have that ")
+                return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
+        
+        speak_output=("ok")
             
-            speak_output = (i)
+            
+            
+            
             
          # speak_output = ("{word_list}").format(word_list=word_list)
             
