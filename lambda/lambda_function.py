@@ -186,15 +186,18 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         # situation=slots["situation"].value
         word_list=[]
-        a=[]
+        subject_list=[]
         what_happen=slots["what_happen"].value
         str_what_happen=listToString(what_happen)
         for word in str_what_happen.split():
             word_list.append(word)
             
-        subject_list=injuries_data["subject"]
+        # subject_list=injuries_data["subject"]
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
+        
+        for subject in injuries_data["subject"]:
+            subject_list.append(subject)
         
         # a,b=check_ele(word_list,subject_list)
         # if b=True:
@@ -204,9 +207,9 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         #     speak_output=("nono {a}").format(a=a)
             
             
-        # speak_output=("{subject_list").format(subject_list=subject_list)
+        speak_output=("{subject_list").format(subject_list=subject_list)
             
-        speak_output = ("{word_list}").format(word_list=word_list)
+        # speak_output = ("{word_list}").format(word_list=word_list)
             
 
         return (
