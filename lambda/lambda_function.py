@@ -175,28 +175,16 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         # situation=slots["situation"].value
         word_list=[]
+        a=[]
         what_happen=slots["what_happen"].value
         str_what_happen=listToString(what_happen)
         for word in str_what_happen.split():
             word_list.append(word)
             
         for subject in injuries_data["subject"]:
-            if subject not in word_list:
-                speak_output=("we don't have that ")
-                
-            else:
-                speak_output=(subject)
-                if_subject=True
-                
+            a.append(subject)
         
-                
-        #         return (
-        #     handler_input.response_builder
-        #         .speak(speak_output)
-        #         .ask(speak_output)
-        #         .response
-        # )
-        
+        speak_output=("{a}").format(a=a)
         
             
             
