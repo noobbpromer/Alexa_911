@@ -181,16 +181,16 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         for word in str_what_happen.split():
             word_list.append(word)
             
-        for subject in injuries_data["subject"]:
-            a.append(subject)
+        # for subject in injuries_data["subject"]:
+        #     a.append(subject)
             
-        for i in a:
-            if i not in word_list:
-                speak_output=("I dont have that ")
-            else:
-                speak_output=("hah")
+        # for i in a:
+        #     if i not in word_list:
+        #         speak_output=("I dont have that ")
+        #     else:
+        #         speak_output=("hah")
             
-         # speak_output = ("{word_list}").format(word_list=word_list)
+        speak_output = ("{word_list}").format(word_list=word_list)
             
         # else:
         #     speak_output="can catch"
