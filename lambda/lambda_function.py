@@ -47,7 +47,7 @@ def check_phase(str_, list_):
         if re.search(r"\b{}\b".format(item), str_.strip()):
             return item
         else:
-            return "None"
+            return None
 
 
 class LaunchRequestHandler(AbstractRequestHandler):
