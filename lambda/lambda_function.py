@@ -42,23 +42,12 @@ def listToString(s):
     # return string   
     return str1 
 
-# def check_ele(a,b):
-#     for i in a:
-#         if i in b:
-#             # if_so=True
-#             return True
-#         else:
-#             # if_so=False
-#             return False
-
-# def return_ele(a,b):
-#     for i in a:
-#         if i in b:
-#             obj=i
-#             return obj
-#         else:
-#             obj= None
-#             return obj
+def check_phase(str_, list_):
+    for item in list_:
+        if re.search(r"\b{}\b".format(item), str_.strip()):
+            return True
+        else:
+            return False
 
 
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -205,14 +194,15 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         subject_list=injuries_data["subject"]
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
+        
+        if (check_phase(str_what_happen,subject_list)):
+            speak_output="good"
+        else:
+            speak_output="bad"
 
-        # if  (check_ele(word_list,status_list)) and (check_ele(word_list,subject_list)):
-        #     someone=return_ele(word_list,subject_list)
-        #     status=return_ele(word_list,subject_list)
-        #     speak_output=("{someone} {status}").format(someone=someone,status=status)
-        # else:
+
             
-        speak_output=("{str_what_happen}").format(str_what_happen=str_what_happen)
+        # speak_output=("{str_what_happen}").format(str_what_happen=str_what_happen)
             
         # speak_output = ("{word_list}").format(word_list=word_list)
             
