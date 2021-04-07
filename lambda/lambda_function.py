@@ -195,13 +195,14 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
         
-        if (check_phase(str_what_happen,subject_list)==True):
-            speak_output="good"
+        # if (check_phase(str_what_happen,subject_list)==True):
+        #     speak_output="good"
+        
 
 
 
             
-        # speak_output=("{str_what_happen} {subject_list}").format(str_what_happen=str_what_happen,subject_list=subject_list)
+        speak_output=("{str_what_happen} {subject_list}").format(str_what_happen=str_what_happen,subject_list=subject_list)
             
         # speak_output = ("{word_list}").format(word_list=word_list)
             
