@@ -42,26 +42,24 @@ def listToString(s):
     # return string   
     return str1 
 
-def check_ele(a,b):
-    for i in a:
-        if i in b:
-            # if_so=True
-            return True
-        else:
-            # if_so=False
-            return False
+# def check_ele(a,b):
+#     for i in a:
+#         if i in b:
+#             # if_so=True
+#             return True
+#         else:
+#             # if_so=False
+#             return False
 
-def return_ele(a,b):
-    for i in a:
-        if i in b:
-            obj=i
-            return obj
-        else:
-            obj= None
-            return obj
-            
+# def return_ele(a,b):
+#     for i in a:
+#         if i in b:
+#             obj=i
+#             return obj
+#         else:
+#             obj= None
+#             return obj
 
-    
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -200,6 +198,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         subject_list=[]
         what_happen=slots["what_happen"].value
         str_what_happen=listToString(what_happen)
+        
         for word in str_what_happen.split():
             word_list.append(word)
             
@@ -213,7 +212,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         #     speak_output=("{someone} {status}").format(someone=someone,status=status)
         # else:
             
-        speak_output=("{subject_list} {word_list}").format(subject_list=subject_list,word_list=word_list)
+        speak_output=("{str_what_happen}").format(str_what_happen=str_what_happen)
             
         # speak_output = ("{word_list}").format(word_list=word_list)
             
