@@ -195,7 +195,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
         
-        if (check_phase(str_what_happen,subject_list)):
+        if (check_phase(str_what_happen,subject_list)==True):
             speak_output="good"
 
 
