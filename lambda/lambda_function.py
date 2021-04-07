@@ -45,9 +45,9 @@ def listToString(s):
 def check_phase(str_, list_):
     for item in list_:
         if re.search(r"\b{}\b".format(item), str_.strip()):
-            return True
+            return item
         else:
-            return False
+            return "None"
 
 
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -195,14 +195,15 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
         
-        # if (check_phase(str_what_happen,subject_list)==True):
-        #     speak_output="good"
+        a= (check_phase(str_what_happen,subject_list)
+        
+        speak_output=("{a}").format(a=a)
         
 
 
 
             
-        speak_output=("{str_what_happen} {subject_list}").format(str_what_happen=str_what_happen,subject_list=subject_list)
+        # speak_output=("{str_what_happen} {subject_list}").format(str_what_happen=str_what_happen,subject_list=subject_list)
             
         # speak_output = ("{word_list}").format(word_list=word_list)
             
