@@ -197,8 +197,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         if (check_phase(str_what_happen,subject_list)):
             speak_output="good"
-        else:
-            speak_output="bad"
+
 
 
             
