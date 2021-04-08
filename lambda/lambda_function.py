@@ -196,12 +196,12 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
         
-        # subject= check_phase(str_what_happen,subject_list)
-        # verb=check_phase(str_what_happen,verb_list)
-        # status=check_phase(str_what_happen,status_list)
+        subject= check_phase(str_what_happen,subject_list)
+        verb=check_phase(str_what_happen,verb_list)
+        status=check_phase(str_what_happen,status_list)
         
         
-        # speak_output=("{subject} {verb} {status}").format(subject=subject,verb=verb,status=status)
+        speak_output=("{subject} {verb} {status}").format(subject=subject,verb=verb,status=status)
         
 
 
