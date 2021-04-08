@@ -43,11 +43,12 @@ def listToString(s):
     return str1 
 
 def check_phase(str_, list_):
+    str_value=""
     for item in list_:
         if re.search(r"\b{}\b".format(item), str_.strip()):
-            return item
-        else:
-            return None
+            str_value=str_value+" "+item
+    return str_value
+
 
 
 class LaunchRequestHandler(AbstractRequestHandler):
