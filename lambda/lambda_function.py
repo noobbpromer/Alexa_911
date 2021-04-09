@@ -199,8 +199,8 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         str_subject=listToString(subject_list)
         
         subject= check_phase(str_what_happen,str_subject)
-        verb=check_phase(str_what_happen,verb_list)
-        status=check_phase(str_what_happen,status_list)
+        # verb=check_phase(str_what_happen,verb_list)
+        # status=check_phase(str_what_happen,status_list)
         
         
         # speak_output=("{subject} {verb} {status}").format(subject=subject,verb=verb,status=status)
