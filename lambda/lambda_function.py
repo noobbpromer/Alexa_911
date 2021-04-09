@@ -37,7 +37,7 @@ def listToString(s):
     
     # traverse in the string   
     for ele in s:  
-        str1 += ele  
+        str1 += ele 
     
     # return string   
     return str1 
@@ -198,7 +198,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         str_subject=listToString(subject_list)
         
-        subject= check_phase(str_what_happen,subject_list)
+        subject= check_phase(what_happen,subject_list)
         verb=check_phase(str_what_happen,verb_list)
         status=check_phase(str_what_happen,status_list)
         
