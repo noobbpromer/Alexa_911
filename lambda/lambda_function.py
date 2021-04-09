@@ -42,11 +42,11 @@ def listToString(s):
     # return string   
     return str1 
 
-def check_phase(str_, list_):
+def check_phase(from_user, in_json):
     str_value=""
     # 先后顺序
-    for item in list_:
-        if re.search(r"\b{}\b".format(item), str_.strip()):
+    for item in from_user:
+        if re.search(r"\b{}\b".format(item), in_json.strip()):
             str_value=str_value+" "+item
     return str_value
 
@@ -198,14 +198,14 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         str_subject=listToString(subject_list)
         
-        subject= check_phase(str_what_happen,subject_list)
+        subject= check_phase(str_what_happen,str_subject)
         verb=check_phase(str_what_happen,verb_list)
         status=check_phase(str_what_happen,status_list)
         
         
         # speak_output=("{subject} {verb} {status}").format(subject=subject,verb=verb,status=status)
         
-        speak_output=("{str_subject} {subject_list}").format(str_subject=str_subject,subject_list=subject_list)
+        speak_output=("{subject}").format(subject=subject)
         
 
 
