@@ -201,9 +201,11 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         
         str_subject=listToString(subject_list)
         
-        subject= check_phase(what_happen,subject_list)
+        subject=check_phase(what_happen,subject_list)
         verb=check_phase(what_happen,verb_list)
         status=check_phase(what_happen,status_list) 
+        
+        subject= list(subject.split(" "))
         
         to_speak=subject[1]+verb[1]+status[1]
         
