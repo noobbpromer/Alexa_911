@@ -190,19 +190,22 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         what_happen=slots["what_happen"].value
         str_what_happen=listToString(what_happen)
         
-        # for word in str_what_happen.split():
-        #     word_list.append(word)
+        
             
         subject_list=injuries_data["subject"]
         verb_list=injuries_data["verb"]
         status_list=injuries_data["status"]
+        
+        str_subject=listToString(subject_list)
         
         subject= check_phase(str_what_happen,subject_list)
         verb=check_phase(str_what_happen,verb_list)
         status=check_phase(str_what_happen,status_list)
         
         
-        speak_output=("{subject} {verb} {status}").format(subject=subject,verb=verb,status=status)
+        # speak_output=("{subject} {verb} {status}").format(subject=subject,verb=verb,status=status)
+        
+        speak_output=("{str_subject} {subject_list}").format(str_subject=str_subject,subject_list=subject_list)
         
 
 
