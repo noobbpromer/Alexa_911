@@ -209,7 +209,7 @@ class InjuriesIntentHandler(AbstractRequestHandler):
         verb= list(verb.split(" "))
         status=list(status.split(" "))
         
-        to_speak=subject[0]+" "+verb[0]+" "+status[0]
+        to_speak=subject[0]+verb[0]+status[0]
         
         
         speak_output=("{to_speak}").format(to_speak=to_speak)
