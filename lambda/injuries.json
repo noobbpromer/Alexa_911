@@ -3,9 +3,9 @@
     "subject":[
         
         "car",
+        "cars",
         "people",
         "vehicle",
-        "cars",
         "there is people"
         
 
@@ -15,7 +15,8 @@
         "sit",
         "lay",
         "die",
-        "stand"
+        "stand",
+        "crash"
         ],
     "status":[
         "on the ground",

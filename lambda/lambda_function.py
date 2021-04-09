@@ -44,6 +44,7 @@ def listToString(s):
 
 def check_phase(str_, list_):
     str_value=""
+    # 先后顺序
     for item in list_:
         if re.search(r"\b{}\b".format(item), str_.strip()):
             str_value=str_value+" "+item
