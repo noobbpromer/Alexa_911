@@ -44,10 +44,13 @@ def listToString(s):
 
 def check_phase(from_user, in_json):
     str_value=""
+    list_value=[]
     # 先后顺序
     for item in in_json:
         if re.search(r"\b{}\b".format(item), from_user.strip()):
             str_value=str_value+" "+item
+            
+    
     return str_value
 
 
