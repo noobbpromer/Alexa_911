@@ -1,0 +1,701 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "call 911",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AnswerIntent",
+          "slots": [
+            {
+              "name": "answer",
+              "type": "verb"
+            }
+          ],
+          "samples": [
+            "yes i don\u0027t know",
+            "i am not sure.",
+            "I don\u0027t know."
+          ]
+        },
+        {
+          "name": "LocationIntent",
+          "slots": [
+            {
+              "name": "location",
+              "type": "AMAZON.StreetName"
+            },
+            {
+              "name": "prepositions",
+              "type": "prepositions",
+              "multipleValues": {
+                "enabled": true
+              }
+            },
+            {
+              "name": "someone",
+              "type": "someone"
+            },
+            {
+              "name": "verb",
+              "type": "verb"
+            },
+            {
+              "name": "incident",
+              "type": "incident"
+            },
+            {
+              "name": "number_accident",
+              "type": "number_accident"
+            }
+          ],
+          "samples": [
+            "{someone} {verb} {incident}",
+            "{someone} {verb} {number_accident} {incident}",
+            " {someone} {prepositions} {location} {someone} {verb} {number_accident} {incident}",
+            "{someone}  {verb}  an {incident} {prepositions} {location}"
+          ]
+        },
+        {
+          "name": "OutlookIntent",
+          "slots": [
+            {
+              "name": "car_type",
+              "type": "car_type"
+            },
+            {
+              "name": "car_brand",
+              "type": "car_brand"
+            },
+            {
+              "name": "car_color",
+              "type": "AMAZON.Color"
+            }
+          ],
+          "samples": [
+            "it looks like an {car_color} {car_brand} {car_type}",
+            "it looks like an {car_color} {car_type}"
+          ]
+        },
+        {
+          "name": "InjuriesIntent",
+          "slots": [
+            {
+              "name": "location_comfirm",
+              "type": "location_comfirm"
+            },
+            {
+              "name": "subject",
+              "type": "someone"
+            },
+            {
+              "name": "verb",
+              "type": "verb"
+            },
+            {
+              "name": "number",
+              "type": "number_accident"
+            },
+            {
+              "name": "object",
+              "type": "object"
+            },
+            {
+              "name": "preposition",
+              "type": "prepositions"
+            },
+            {
+              "name": "situation",
+              "type": "situation"
+            },
+            {
+              "name": "what_happen",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "{location_comfirm}",
+            "yes {what_happen} "
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "with"
+              }
+            },
+            {
+              "name": {
+                "value": "upon"
+              }
+            },
+            {
+              "name": {
+                "value": "toward",
+                "synonyms": [
+                  "happen toward"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "over"
+              }
+            },
+            {
+              "name": {
+                "value": "under",
+                "synonyms": [
+                  "happen under"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "of",
+                "synonyms": [
+                  "happen of"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "off"
+              }
+            },
+            {
+              "name": {
+                "value": "near",
+                "synonyms": [
+                  "happen near"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "into",
+                "synonyms": [
+                  "happen into"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "outside",
+                "synonyms": [
+                  "happen outside"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "inside",
+                "synonyms": [
+                  "happen inside"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "up"
+              }
+            },
+            {
+              "name": {
+                "value": "down"
+              }
+            },
+            {
+              "name": {
+                "value": "between",
+                "synonyms": [
+                  "happen between "
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "beside",
+                "synonyms": [
+                  "happen beside"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "besides",
+                "synonyms": [
+                  "happen besides"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "below",
+                "synonyms": [
+                  "happen below"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "behind",
+                "synonyms": [
+                  "happen behind"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "among",
+                "synonyms": [
+                  "happen among "
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "along",
+                "synonyms": [
+                  "happen along "
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "across",
+                "synonyms": [
+                  "happen across"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "above",
+                "synonyms": [
+                  "happen above"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "on",
+                "synonyms": [
+                  "happen on "
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "in ",
+                "synonyms": [
+                  "happen in "
+                ]
+              }
+            }
+          ],
+          "name": "prepositions"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "i "
+              }
+            }
+          ],
+          "name": "someone"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "minivan"
+              }
+            },
+            {
+              "name": {
+                "value": "SUV"
+              }
+            }
+          ],
+          "name": "car_type"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Benz"
+              }
+            }
+          ],
+          "name": "car_brand"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "feels"
+              }
+            },
+            {
+              "name": {
+                "value": "realizing"
+              }
+            },
+            {
+              "name": {
+                "value": "thinks"
+              }
+            },
+            {
+              "name": {
+                "value": "realize"
+              }
+            },
+            {
+              "name": {
+                "value": "were"
+              }
+            },
+            {
+              "name": {
+                "value": "noticing"
+              }
+            },
+            {
+              "name": {
+                "value": "am"
+              }
+            },
+            {
+              "name": {
+                "value": "are"
+              }
+            },
+            {
+              "name": {
+                "value": "has"
+              }
+            },
+            {
+              "name": {
+                "value": "have"
+              }
+            },
+            {
+              "name": {
+                "value": "seeing"
+              }
+            },
+            {
+              "name": {
+                "value": "knows"
+              }
+            },
+            {
+              "name": {
+                "value": "is"
+              }
+            },
+            {
+              "name": {
+                "value": "want to report"
+              }
+            },
+            {
+              "name": {
+                "value": "watching"
+              }
+            },
+            {
+              "name": {
+                "value": "watches"
+              }
+            },
+            {
+              "name": {
+                "value": "watch"
+              }
+            },
+            {
+              "name": {
+                "value": "sees "
+              }
+            },
+            {
+              "name": {
+                "value": "saw"
+              }
+            },
+            {
+              "name": {
+                "value": "see "
+              }
+            }
+          ],
+          "name": "verb"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "auto accident"
+              }
+            },
+            {
+              "name": {
+                "value": "airplane crash"
+              }
+            },
+            {
+              "name": {
+                "value": "bus accident"
+              }
+            },
+            {
+              "name": {
+                "value": "drunk driver"
+              }
+            },
+            {
+              "name": {
+                "value": "plane crash"
+              }
+            },
+            {
+              "name": {
+                "value": "car accident"
+              }
+            },
+            {
+              "name": {
+                "value": "traffic accident"
+              }
+            },
+            {
+              "name": {
+                "value": "crash"
+              }
+            },
+            {
+              "name": {
+                "value": "motorcycle accident"
+              }
+            },
+            {
+              "name": {
+                "value": "road accident"
+              }
+            },
+            {
+              "name": {
+                "value": "car crash"
+              }
+            },
+            {
+              "name": {
+                "value": "accidents"
+              }
+            },
+            {
+              "name": {
+                "value": "accident"
+              }
+            }
+          ],
+          "name": "incident"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "multiple"
+              }
+            },
+            {
+              "name": {
+                "value": "large number"
+              }
+            },
+            {
+              "name": {
+                "value": "various"
+              }
+            },
+            {
+              "name": {
+                "value": "numerous"
+              }
+            },
+            {
+              "name": {
+                "value": "several"
+              }
+            },
+            {
+              "name": {
+                "value": "three"
+              }
+            },
+            {
+              "name": {
+                "value": "two"
+              }
+            },
+            {
+              "name": {
+                "value": "one"
+              }
+            },
+            {
+              "name": {
+                "value": "many"
+              }
+            },
+            {
+              "name": {
+                "value": "some"
+              }
+            },
+            {
+              "name": {
+                "value": "another"
+              }
+            },
+            {
+              "name": {
+                "value": "the"
+              }
+            },
+            {
+              "name": {
+                "value": "an"
+              }
+            },
+            {
+              "name": {
+                "value": "a "
+              }
+            }
+          ],
+          "name": "number_accident"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "i am not sure"
+              }
+            },
+            {
+              "name": {
+                "value": "i don\u0027t know"
+              }
+            }
+          ],
+          "name": "location_comfirm"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Vehicle"
+              }
+            },
+            {
+              "name": {
+                "value": "car"
+              }
+            },
+            {
+              "name": {
+                "value": "boy"
+              }
+            },
+            {
+              "name": {
+                "value": "girl"
+              }
+            },
+            {
+              "name": {
+                "value": "woman"
+              }
+            },
+            {
+              "name": {
+                "value": "man"
+              }
+            },
+            {
+              "name": {
+                "value": "people"
+              }
+            }
+          ],
+          "name": "object"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "on fire"
+              }
+            },
+            {
+              "name": {
+                "value": "lose consciousness"
+              }
+            },
+            {
+              "name": {
+                "value": "coma"
+              }
+            },
+            {
+              "name": {
+                "value": "die"
+              }
+            },
+            {
+              "name": {
+                "value": "lay down"
+              }
+            },
+            {
+              "name": {
+                "value": "get hurt"
+              }
+            },
+            {
+              "name": {
+                "value": "hurt"
+              }
+            }
+          ],
+          "name": "situation"
+        }
+      ]
+    }
+  },
+  "version": "85"
+}
